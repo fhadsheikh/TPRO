@@ -39,6 +39,21 @@ class Tickets extends CI_Controller {
         // Get ticket information from helpdesk API
         $data['ticket'] = $this->Helpdesk_model->getTicket($id);
         
+        // If ticket was not found then throw 404 error with details
+        if($data['ticket'] === NULL){
+                    $data['pageTitle'] = 'Ticket ID '.$id.' not found';
+                    $data['error'] = "Ticket $id not found";
+                    $data['details'] = "Please verify if the ticket exists in the helpdesk and you have permission to view it.";
+                    
+                    header("HTTP/1.1 404 Not Found");
+                    $this->load->view('html_header', $data);
+                    $this->load->view('headerbar');
+                    $this->load->view('404', $data);
+                    $this->load->view('infobar');
+                    $this->load->view('html_footer');   
+            return;
+        } 
+        
         // Get ticket comments
         $comments = $this->Helpdesk_model->getComments($id);
         
