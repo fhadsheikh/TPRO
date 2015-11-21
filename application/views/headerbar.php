@@ -81,67 +81,7 @@
 	</span>
 	
 	
-	<div class="yamm navbar-left navbar-collapse collapse in">
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<span class="caret"></span></a>
-				<ul class="dropdown-menu" style="width: 900px;">
-					<li>
-						<div class="yamm-content container-sm-height">
-							<div class="row row-sm-height yamm-col-bordered">
-								<div class="col-sm-3 col-sm-height yamm-col">
-                                            
-                                    <h3 class="yamm-category">Modues</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="layout-fixed-sidebars.html">Dashboard</a></li>
-                                        <li><a href="layout-sidebar-scroll.html">Reports</a></li>
-                                        <li><a href="layout-static-leftbar.html">Triage</a></li>
-                                        <li><a href="layout-leftbar-widgets.html">Tickets</a></li>   
-                                        <li><a href="layout-infobar-offcanvas.html">QA</a></li>
-                                        <li><a href="layout-infobar-overlay.html">CRM</a></li>
-                                        <li><a href="layout-chatbar-overlay.htm">Implementation</a></li>
-                                    </ul>
-                                    
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                    
-                                    <h3 class="yamm-category">Tools</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="layout-breadcrumb-top.html">Inbox</a></li>
-                                        <li><a href="layout-page-tabs.html">Tasks</a></li>
-                                        <li><a href="layout-fullheight-panel.html">Calendar</a></li>
-                                        <li><a href="layout-fullheight-content.html">Chat</a></li>
-                                    </ul>
 
-                                    <h3 class="yamm-category">Internal</h3>
-                                    <ul class="list-unstyled">
-                                    	<li><a href="layout-topnav-options.html">Resources</a></li>
-                                    </ul>
-                                    
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                    
-                                    <h3 class="yamm-category">External Links</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="charts-flot.html">Helpdesk</a></li>
-                                        <li><a href="charts-sparklines.html">Jira</a></li>
-                                        <li><a href="charts-morris.html">Confluence</a></li>
-                                        <li><a href="charts-easypiechart.html">Forum</a></li>
-                                    </ul>
-
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                	<h3 class="yamm-category">About this App</h3>
-                                    <img src="<?php echo base_url('assets/images/clockwork_logo.png');?>" class="mb20 img-responsive" style="width: 100%;">
-                                    <p>Use this online web app to keep track of all your TechnoPro tasks.</p>
-                                </div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</li>
-        </ul>
-	</div>
 
 	<ul class="nav navbar-nav toolbar pull-right">
 		<li class="dropdown toolbar-icon-bg">
