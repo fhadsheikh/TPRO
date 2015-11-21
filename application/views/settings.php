@@ -14,54 +14,54 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="home2">
                                 <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-1">
+                                    <div class="col-sm-10 col-sm-offset-1">
                                         <form class="form-horizontal row-border" action="">
                                             <h2><strong>PERSONAL SETTINGS</strong></h2>
                                             <h4 class="col-sm-offset-0 pt-xxl mb-n">Account</h4>
                                             <?php //print_r($techdb); ?>
                                             <div>
                                                 <center>
-                                                    <img src="http://clockwork-fhad:8081/TPRO/assets/images/avatar.jpg" class="img-responsive img-circle">
+                                                    <img src="<?php echo base_url('assets/images/avatar.jpg'); ?>" class="img-responsive img-circle">
                                                     <p class="text-muted">Profile Picture</p>
                                                  </center>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Username</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">Username</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['username']; ?>"></input>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Name</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">Name</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['name']; ?>"></input>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Company</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">Company</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['company']; ?>"></input>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Tickets Handled</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">Tickets Handled</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['ticketsHandled']; ?>"></input>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Helpdesk ID</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">Helpdesk ID</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['helpdeskID']; ?>"></input>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">ClockWork ID</label>
-                                                        <div class="col-sm-8">
+                                                        <label class="col-sm-4 control-label">ClockWork ID</label>
+                                                        <div class="col-sm-7">
                                                             <input class="form-control" type="text" value="<?php echo $tech['clockworkID']; ?>"></input>
                                                         </div>
                                                     </div>
