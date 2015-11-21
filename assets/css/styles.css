@@ -445,3 +445,11 @@
 padding: 20px 0px;
 color: white;
 }
+
+.msg-body p img{
+    max-width: 100%;
+}
+
+.panel-body img{
+    max-width:100%;
+}
