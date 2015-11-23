@@ -8,6 +8,7 @@ class Tickets extends CI_Controller {
         $this->load->helper('date_helper');
         $this->load->model('Helpdesk_model');
         $this->load->model('Database_model');
+        $this->load->model('Gravatar_model');
     }
     
     // PAGES
@@ -59,7 +60,9 @@ class Tickets extends CI_Controller {
         
         // Format comment date
         foreach($comments as $key => $comment){
-            $comments[$key]->CommentDate = mysqlDateTimeFirst($comment->CommentDate);}
+            $comments[$key]->CommentDate = mysqlDateTimeFirst($comment->CommentDate);
+            $comments[$key]->Gravatar = $this->Gravatar_model->getGravatar($comment->Email);
+        }
         
         // Set comments array with formatted date into page variable
         $data['comments'] = $comments;

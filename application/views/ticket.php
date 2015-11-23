@@ -11,19 +11,19 @@
                                             
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Name</label>
+                    <div class="form-group m-n">
+                        <label class="col-sm-3 control-label">Title</label>
                         <div class="col-sm-6">
                             <input class="form-control" type="text" value=""></input>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group m-n">
                         <label class="col-sm-3 control-label">Details</label>
                         <div class="col-sm-6">
                             <textarea class="form-control autosize" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group m-n">
                         <label class="col-sm-3 control-label">Assign User</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="source">
@@ -158,37 +158,53 @@
                     </div>
                 </div>
             </div>
-            
-            <?php foreach($comments as $comment): ?>
+            <div class="panel panel-gray" style="margin-left:0px">
+			<div class="panel-body mailbox-panel" style="padding: 0px 24px 0px 0px">
+                <?php foreach($comments as $comment):?>
                 <?php if($comment->UserName == $ticket->SubmitterUserInfo->Username): ?>
-                    <div class="panel">
-                        <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px rgb(225, 127, 0);">
-                            <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
+                    <section class="tabular pl-md" style="border-left:solid 3px rgb(255, 127, 0);">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar; ?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <?php echo $comment->Body; ?>
-                        </div>
-                    </div>
+                    </section>
                 <?php elseif($comment->ForTechsOnly == true): ?>
-                    <div class="panel">
-                        <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px rgb(0, 210, 255);">
-                            <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
+                    <section class="tabular pl-md" style="border-left:solid 3px rgb(0, 210, 255);">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar; ?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <?php echo $comment->Body; ?>
-                        </div>
-                    </div>
+                    </section>
                 <?php else: ?>
-                <div class="panel">
-                    <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px #98E700;">
-                        <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
-                    </div>
-                    <div class="panel-body">
-                        <?php echo $comment->Body; ?>
-                    </div>
-                </div>
-            
-            <?php endif; endforeach; ?>
+                    <section class="tabular pl-md" style="border-left:solid 3px #98E700">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar;?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
+                        </div>
+                    </section>
+                <?php endif; endforeach; ?>
+
+			</div>
+
+		</div>
 		</div>
 		<div class="col-md-3">
             <div id="pendingTask" class="panel panel-orange" style="border: none;">
