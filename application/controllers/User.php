@@ -15,6 +15,9 @@ class User extends CI_Controller {
         
         parent::__construct();
         
+        $this->load->model('Database_model');
+        $this->load->model('Gravatar_model');
+        
     }
         
     public function login(){
@@ -39,6 +42,34 @@ class User extends CI_Controller {
         $this->session->set_userdata('gravatar', $this->Gravatar_model->getGravatar($this->session->Email));
         
         redirect('dashboard');
+        
+    }
+    
+    public function getNotifications($userID){
+        
+        $notifications = $this->Database_model->getNotifications($userID);
+        
+        
+        
+        foreach($notifications as $key => $notification){
+            
+            
+            if($notification->FirstName == null){
+                $notifications[$key]->Name = $notification->UserName;
+            } else {
+                $notifications[$key]->Name = $notification->FirstName." ".$notification->LastName;
+            }
+            
+            
+            if($notification->Body == 'New ticket submitted <b>(email)</b>'){
+                $notifications[$key]->Message = 'created a new ticket (#'.$notification->IssueID.')';
+            }
+            
+            $notifications[$key]->Gravatar = $this->Gravatar_model->getGravatar($notification->Email);
+        }
+        echo json_encode($notifications);
+  
+        //echo "<pre>"; print_r($notifications); echo "</pre>";
         
     }
     

@@ -128,12 +128,12 @@
 					<span><a href="#">Settings</a></span>
 				</div>
 				<div class="scrollthis scroll-pane">
-					<ul class="scroll-content">
+					<ul id="notificationsBox" class="scroll-content">
 
 						<li class="">
 							<a href="#" class="notification-info">
-								<div class="notification-icon"><i class="fa fa-user fa-fw"></i></div>
-								<div class="notification-content">Profile Page has been updated</div>
+								<div class="notification-icon"><img width="40" src="http://www.gravatar.com/avatar/213a11e88a86239989133884bea730f1?s=200&d=identicon&r=g"></div>
+								<div class="notification-content"><strong>Fhad Sheikh</strong><br>Profile Page has been updated</div>
 								<div class="notification-time">2m</div>
 							</a>
 						</li>
@@ -181,6 +181,47 @@
 		</li>
 
 		<li class="dropdown toolbar-icon-bg hidden-xs">
+			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-tasks"></i></span></a>
+			<div class="dropdown-menu dropdown-alternate messages arrow">
+				<div class="dd-header">
+					<span>Tasks</span>
+				</div>
+
+				<div class="scrollthis scroll-pane">
+					<ul class="scroll-content">
+				        <li class="">
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title"><span style="">Autofind seat</span></div>
+                                        <div class="progress-percentage">Due Today</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" style="width: 75%"></div>
+                                    </div>
+                                </div>
+							</a>
+						</li>
+				        <li class="">
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">UI Design</div>
+                                        <div class="progress-percentage">75%</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-lime" style="width: 75%"></div>
+                                    </div>
+                                </div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="dd-footer"><a href="#">View all tasks</a></div>
+			</div>
+		</li>
+		<li class="dropdown toolbar-icon-bg hidden-xs">
 			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-envelope"></i></span></a>
 			<div class="dropdown-menu dropdown-alternate messages arrow">
 				<div class="dd-header">
@@ -191,13 +232,16 @@
 				<div class="scrollthis scroll-pane">
 					<ul class="scroll-content">
 						<li class="">
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_09.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">Steven Shipe</span>
-									<span class="msg">Nonummy nibh epismod lorem ipsum</span>
-								</div>
-								<span class="msg-time">30s</span>
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">UI Design</div>
+                                        <div class="progress-percentage">75%</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-lime" style="width: 75%"></div>
+                                    </div>
+                                </div>
 							</a>
 						</li>
 						<li>

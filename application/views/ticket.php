@@ -206,6 +206,7 @@
 		</div>
 		</div>
 		<div class="col-md-3">
+            <div id="puthere"></div>
             <div id="pendingTask" class="panel panel-orange" style="border: none;">
                 <div class="panel-heading">
                     <h2 style="color:white"><i class="fa fa-exclamation-triangle"></i> Task Pending</h2>

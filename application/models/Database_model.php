@@ -327,11 +327,48 @@ class Database_model extends CI_Model{
         $commentArray['CommentDate'] = mysqldate($comment->CommentDate);
         $commentArray['CommentID'] = $comment->CommentID;
         $commentArray['FirstName'] = $comment->FirstName;
-        $commentArray['LastName'] = $comment->LastName; 
+        $commentArray['LastName'] = $comment->LastName;
+        $commentArray['IssueID'] = $comment->IssueID;
+        $commentArray['UserID'] = $comment->UserID;
+        $commentArray['Email'] = $comment->Email;
                 
         $this->db->insert('comments', $commentArray);
     }
     
     
+    // USER 
+    
+    public function getNotifications($userID){
+//        $this->db->select('users.FirstName, users.LastName, comments.UserID, users.helpdesk_id, comments.IssueID, tickets.IssueID, tickets.AssignedToUserID');
+//        $this->db->from('comments');
+//        $this->db->join('users', 'comments.UserID = users.helpdesk_id');
+//        $this->db->join('tickets', 'comments.IssueID = tickets.IssueID');
+//        $this->db->where('AssignedToUserID', $userID);
+//        $this->db->where('comments.UserID !=', $userID);
+//        
+//        $query = $this->db->get();
+        
+        $query = $this->db->query("
+        
+            SELECT comments.Email, comments.IssueID, comments.CommentID, comments.Body, comments.FirstName, comments.LastName, tickets.UserName
+
+            FROM comments
+
+            LEFT JOIN users ON users.helpdesk_id = comments.UserID
+
+            LEFT JOIN tickets ON tickets.IssueID = comments.IssueID
+
+            WHERE tickets.AssignedToUserID = $userID AND comments.UserID != $userID
+
+            ORDER BY comments.commentID DESC
+
+            LIMIT 10 
+        
+        ");
+        $result = $query->result();
+        
+        return $result;
+        
+    }
     
 }

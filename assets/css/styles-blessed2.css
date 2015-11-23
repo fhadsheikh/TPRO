@@ -3355,7 +3355,6 @@ div.widget .contextual-progress:last-child {
 .contextual-progress {
   margin: 0 -17px;
   padding: 20px;
-  border-bottom: 1px solid #eeeeee;
 }
 .contextual-progress .progress-percentage {
   float: right;
