@@ -1,4 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create a new task</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal row-border" action="">
+                                            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" value=""></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Details</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control autosize" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Assign User</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="source">
+                                <optgroup label="Technicians">
+                                    <option value="AK">Azim Ahmed</option>
+                                    <option value="HI">Lester Siew</option>
+                                    <option value="HI">Mike James</option>
+                                    <option value="HI">Mark Kim</option>
+                                    <option value="HI">Krystel Ocampo</option>
+                                    <option value="HI">Sam Goria</option>
+                                </optgroup>
+                                <optgroup label="Developers">
+                                    <option value="CA">Mike Dinunzio</option>
+                                    <option value="NV">Maikel Garma</option>
+                                </optgroup>
+                                <optgroup label="Misc">
+                                    <option value="CA">Wayne Whitley</option>
+                                    <option value="NV">Mary Baddam</option>
+                                    <option value="OR">Fhad Sheikh</option>
+                                    <option value="OR">Charlene Bartlett</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button id="createTask" type="button" data-dismiss="modal" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="static-content">
     <div class="page-content">
         <ol class="breadcrumb">
@@ -17,23 +79,20 @@
                                              
 	<div class="row">
         <div class="col-md-9">
-            <div class="input-group mb-lg">
-				<input class="form-control" placeholder="Search tickets..." type="text">
-				<span class="input-group-btn">
-					<a class="btn btn-primary" href="#"><i class="fa fa-fw fa-search"></i></a>
-				</span>
-			</div>
 			<div class="panel panel-inbox-read">
 				<div class="panel-body">
                     <div class="inbox-read-heading">
 						<div class="clearfix">
 							<div class="pull-left">
-						        <a href="app-inbox.html" class="btn btn-default"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
-						        <div class="btn-group">
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-archive"></i></a>
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-warning"></i></a>
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-trash-o"></i></a>
-		                        </div>
+						        <a href="#" id="replyOpen" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
+						        
+		                            <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Create Work Order"><i class="fa fa-fw fa-file-text"></i></a>
+		                            <a href="#" class="p-n" href="#" data-toggle="modal" data-target="#myModal">
+                                        <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="New Task"><i class="fa fa-fw fa-tasks"></i></span>
+                                    </a>
+                                    <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Submit Bug"><i class="fa fa-fw fa-bug"></i></a>
+		                        
+                                <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-fw fa-trash-o"></i></a>
 						        <div class="btn-group">
 						            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Bug Fix <i class="caret"></i></a>
 						            <ul class="dropdown-menu">
@@ -82,7 +141,7 @@
 					</div>
 				</div>
 			</div>
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="replyBox">
                 <div class="panel-heading">
                     <strong>Reply</strong>
                     <div class="pull-right">
@@ -99,6 +158,7 @@
                     </div>
                 </div>
             </div>
+            
             <?php foreach($comments as $comment): ?>
                 <?php if($comment->UserName == $ticket->SubmitterUserInfo->Username): ?>
                     <div class="panel">
@@ -131,6 +191,23 @@
             <?php endif; endforeach; ?>
 		</div>
 		<div class="col-md-3">
+            <div id="pendingTask" class="panel panel-orange" style="border: none;">
+                <div class="panel-heading">
+                    <h2 style="color:white"><i class="fa fa-exclamation-triangle"></i> Task Pending</h2>
+                </div>
+                <div class="panel-body p-md" style="background: #fafafa;color: black;">
+                    <dl>
+                        <dt>Details of Task #432</dt>
+                        <dd>Review attached security report</dd>
+                        <dt>Tech Status</dt>
+                        <dd>Waiting to get answers from developers</dd>
+                        <dt>Assigned to</dt>
+                        <dd>John Smith.</dd>                    
+                        <dt>Date Assigned</dt>
+                        <dd>23/11/2015</dd>
+                      </dl>
+                </div>
+            </div>
             <a class="btn btn-block btn-danger btn-compose" href="">Close Ticket</a>
             <div class="inbox-menu mt-lg">
 

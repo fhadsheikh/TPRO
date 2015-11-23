@@ -31,7 +31,7 @@ $(document).ready(function(){
     }
     
     
-   
+   $('[data-toggle="tooltip"]').tooltip()
     
     $('#summernote').summernote({
         height: 200,
@@ -39,6 +39,18 @@ $(document).ready(function(){
             ['font' , ['bold']],
             ['insert', ['link', 'picture']]
         ]
+    });
+    
+    $('#replyBox').hide();
+    
+    $('#replyOpen').click(function(){
+        $('#replyBox').slideToggle();
+    });
+    
+    $('#pendingTask').hide();
+    
+    $('#createTask').click(function(){
+        $('#pendingTask').slideToggle();
     });
     
     $('#allTickets').click(function(){
