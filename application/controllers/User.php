@@ -35,6 +35,9 @@ class User extends CI_Controller {
 
         $this->tech->authenticate($username, $password);
         
+        $this->load->model('Gravatar_model');
+        $this->session->set_userdata('gravatar', $this->Gravatar_model->getGravatar($this->session->Email));
+        
         redirect('dashboard');
         
     }

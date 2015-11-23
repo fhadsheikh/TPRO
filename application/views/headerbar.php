@@ -284,7 +284,7 @@
                                 <div class="widget-body welcome-box tabular">
                                     <div class="tabular-row">
                                         <div class="tabular-cell welcome-avatar">
-                                            <a href="#"><img src="<?php echo base_url('assets/images/avatar.jpg'); ?>" class="avatar"></a>
+                                            <a href="#"><img src="<?php echo $this->session->gravatar; ?>" class="avatar"></a>
                                         </div>
                                         <div class="tabular-cell welcome-options">
                                             <span class="welcome-text">Welcome,</span>

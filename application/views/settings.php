@@ -21,9 +21,9 @@
                                             <?php //print_r($techdb); ?>
                                             <div>
                                                 <center>
-                                                    <img src="<?php echo base_url('assets/images/avatar.jpg'); ?>" class="img-responsive img-circle">
-                                                    <p class="text-muted">Profile Picture</p>
-                                                 </center>
+                                                    <img src="<?php echo $this->session->gravatar; ?>" class="img-responsive img-circle">
+                                                </center>
+                                                <br><br>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
