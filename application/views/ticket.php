@@ -8,7 +8,6 @@
       </div>
       <div class="modal-body">
         <form class="form-horizontal row-border" action="">
-                                            
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group m-n">
@@ -84,7 +83,7 @@
                     <div class="inbox-read-heading">
 						<div class="clearfix">
 							<div class="pull-left">
-						        <a href="#" id="replyOpen" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
+						        <a href="#" id="" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
 						        
 		                            <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Create Work Order"><i class="fa fa-fw fa-file-text"></i></a>
 		                            <a href="#" class="p-n" href="#" data-toggle="modal" data-target="#myModal">
@@ -150,7 +149,7 @@
                     </div>          
                                 
                 </div>
-                <div id="summernote" class="panel-body">
+                <div id="summernote" class="panel-body" style="min-height: 70px">
                 </div>
                 <div class="row">
                     <div class="col-md-12">

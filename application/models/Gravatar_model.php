@@ -6,7 +6,7 @@ class Gravatar_model extends CI_Model{
         parent::__construct();
     }
     
-    public function getGravatar($email, $s = 200, $d = 'mm', $img = false, $r = 'g'){
+    public function getGravatar($email, $s = 200, $d = 'identicon', $img = false, $r = 'g'){
         
         $url = 'http://www.gravatar.com/avatar/';
         $url .= md5( strtolower( trim( $email ) ) );

@@ -35,17 +35,16 @@ $(document).ready(function(){
     
     $('#summernote').summernote({
         height: 200,
-        toolbar: [
+        airMode: true,
+          airPopover: [
             ['font' , ['bold']],
             ['insert', ['link', 'picture']]
+//        toolbar: [
+//            ['font' , ['bold']],
+//            ['insert', ['link', 'picture']]
         ]
     });
     
-    $('#replyBox').hide();
-    
-    $('#replyOpen').click(function(){
-        $('#replyBox').slideToggle();
-    });
     
     $('#pendingTask').hide();
     
