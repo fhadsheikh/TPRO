@@ -9,6 +9,8 @@ class Tickets extends CI_Controller {
         $this->load->model('Helpdesk_model');
         $this->load->model('Database_model');
         $this->load->model('Gravatar_model');
+        
+        ($this->tech->isLoggedIn() ? : redirect('user/login') );
     }
     
     // PAGES
@@ -188,6 +190,11 @@ class Tickets extends CI_Controller {
     }
 
     
-
+    public function search(){
+        
+       $id = $this->input->post('ticketID');
+        redirect("tickets/ticket/$id");
+        
+    }
     
 }

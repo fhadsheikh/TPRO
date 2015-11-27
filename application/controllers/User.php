@@ -41,6 +41,9 @@ class User extends CI_Controller {
         $this->load->model('Gravatar_model');
         $this->session->set_userdata('gravatar', $this->Gravatar_model->getGravatar($this->session->Email));
         
+        $this->load->config('pusher');
+        $this->session->set_userdata('pusher_api_key', $this->config->item('pusher_api_key'));
+        
         redirect('dashboard');
         
     }
@@ -63,6 +66,8 @@ class User extends CI_Controller {
             
             if($notification->Body == 'New ticket submitted <b>(email)</b>'){
                 $notifications[$key]->Message = 'created a new ticket (#'.$notification->IssueID.')';
+            } else {
+                $notifications[$key]->Message = $notification->Body;
             }
             
             $notifications[$key]->Gravatar = $this->Gravatar_model->getGravatar($notification->Email);

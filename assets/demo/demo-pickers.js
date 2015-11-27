@@ -35,11 +35,11 @@ $(document).ready(function() {
                     $.ajax({
                         url : "http://clockwork-fhad:8081/TPRO/triage/get/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                         dataType: 'json',
+                        async: false,
                         success: function(s){
 
                             oTable.clear().rows.add(s).draw();
 
-                            console.log(s);
 
                         }
                     });
@@ -87,7 +87,6 @@ $(document).ready(function() {
                         
                         techTable.clear().rows.add(s).draw();
                         
-                        console.log(s);
                        
                     }
                 });
@@ -134,8 +133,6 @@ $(document).ready(function() {
                        
                     }
                 });
-            
-                console.log('clear');
             
                 $(document).skylo('show',function(){
                     $(document).skylo('end');

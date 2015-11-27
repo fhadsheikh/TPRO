@@ -1,4 +1,39 @@
 <!-- Modal -->
+<div class="modal fade" id="ticketSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search for a ticket</h4>
+      </div>
+      <div class="modal-body">
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input id="1" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control" autofocus>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="2" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="3" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="4" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -69,9 +104,18 @@
         <div class="page-heading">            
             <h1>Ticket ID <span id="ticketID"><?php echo $ticket->TicketID; ?></span> - <?php echo $ticket->Subject; ?></h1>
                 <div class="options">
-                    <div class="btn-toolbar">
-                        <a href="#" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i></a>
-                    </div>
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="form-group">
+                            
+                                <div class="input-group">
+                                    <input id="ticketSearchTextBox" class="form-control" name="ticketID" placeholder="Search for a ticket..." type="text">
+                                    <div class="input-group-btn">
+                                        <button id="submitTicketSearch" type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </form>
                 </div>
         </div>
         <div class="container-fluid">
@@ -168,7 +212,7 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -181,7 +225,7 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -194,7 +238,7 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <span class="pull-right"><small><?php echo $comment->CommentDate; ?></small></span>
+                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -206,7 +250,7 @@
 		</div>
 		</div>
 		<div class="col-md-3">
-            <div id="puthere"></div>
+           <div onload="fromNow(this)">test</div>
             <div id="pendingTask" class="panel panel-orange" style="border: none;">
                 <div class="panel-heading">
                     <h2 style="color:white"><i class="fa fa-exclamation-triangle"></i> Task Pending</h2>

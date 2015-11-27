@@ -1,35 +1,55 @@
 $(document).ready(function(){
     
+    var userID = $('#userID').text();
+    
     firstload();
     
     function firstload(){
-        
         var ticketTable = $('#tickets').DataTable({
         "paging": false,
         "order": [[ 0, "desc" ]]
         });
-        
-
-    
-    $.ajax({
-        url: "http://clockwork-fhad:8081/TPRO/tickets/getThreeResponses",
-        dataType: 'json',
-        success: function(s){
-            
-            $(document).skylo('show',function(){
-                    $(document).skylo('set',50);
-            });
-            
-            ticketTable.clear().rows.add(s).draw();
-            
-            $(document).skylo('show',function(){
-                $(document).skylo('end');
-            });
-        }
-    });
-        
     }
     
+    //Bootstrap Switch
+	$('input.bootstrap-switch').bootstrapSwitch();
+    console.log('test');
+    
+    if($('#openTable').length){
+        console.log('getOpen');
+        openTable = $('#openTable').DataTable({
+            "paging":   false
+        });
+
+        $.ajax({
+            url: "http://clockwork-fhad:8081/TPRO/triage/getOpen",
+            dataType: 'json',
+            async: false,
+            success: function(s){
+
+                openTable.clear().rows.add(s).draw();
+
+            }
+        });
+        
+    };
+    
+    $('.modal').on('shown.bs.modal', function() {
+      $(this).find('[autofocus]').focus();
+    });
+    
+    Mousetrap.bind('*', function() { 
+        $('#ticketSearch').modal('toggle'); 
+    });
+    
+    $("input[data-numbers='true']").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //display error message
+        $("#errmsg").html("Digits Only").show().fadeOut("slow");
+               return false;
+    }
+   });
     
    $('[data-toggle="tooltip"]').tooltip()
     
@@ -141,7 +161,6 @@ $(document).ready(function(){
                 .replace("<img src=\"", "[img]")
                 .replace("\" alt=\"\">")
             
-            console.log(body);
 
 
             var data = {ticketID: ticketID,
@@ -216,52 +235,34 @@ $(document).ready(function(){
         
     });
     
-    $('#clientResponses').click(function(){
-        $('#table').html(" <table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-fixed-header m0' id='reports_threeResponses'> <thead> <tr> <th>ID</th> <th width='20%'>Subject</th> <th>Tech</th> <th>Priority</th> <th>Submitted By</th> <th>Client Responses</th> <th>Status</th> <th>Lifespan</th> </tr> </thead><tfoot> <tr> <th>ID</th> <th>Subject</th> <th>Tech</th> <th>Priority</th> <th>Submitted By</th> <th>Client Responses</th> <th>Status</th> <th>Lifespan</th> </tr> </tfoot> </table>");
-        
-        var threeResponses = $('#reports_threeResponses').DataTable({
-            "paging": false,
-            "order": [[0, "desc"]]
-        });
-        
-        $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/reports/getThreeResponses",
-            dataType: 'json',
-            success: function(s){
-
-                $(document).skylo('show',function(){
-                        $(document).skylo('set',50);
-                });
-
-                threeResponses.clear().rows.add(s).draw();
-                console.log(s);
-
-                $(document).skylo('show',function(){
-                    $(document).skylo('end');
-                });
-            }
-    });
-       
-    });
-    
     $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/user/getnotifications/9",
+            url: "http://clockwork-fhad:8081/TPRO/user/getnotifications/"+userID,
             dataType: 'json',
+            async: false,
             success: function(s){
-                console.log('started');
                 
                 for (var key in s){
                     
                     $("<li class=''><a href='#' class='notification-info'><div class='notification-icon'><img width='40' src='"+s[key].Gravatar+"'></div><div class='notification-content'><strong>"+s[key].Name+"</strong><br>"+s[key].Message+"</div><div class='notification-time'>2m</div></a></li>").prependTo('#notificationsBox');
-                    console.log(s[key].Body)
-                }
+                    }
                                 
-                
+                $('#notificationsBadge').text(s.length);
             }
             
         });
     
+        $(".commentDate").each(function(e,s){
+            var commentDate =$(this).text();
+            var newDate = moment(commentDate, 'h:mm A - MMM DD, YYYY').fromNow();
+
+            $(this).text(newDate);
+        });
     
+//        var commentDate = $("#commentDate").text();
+//        var newDate = moment(commentDate, 'h:mm A - MMM DD, YYYY').fromNow();
+//        
+//        console.log(newDate);
+   
     
 });
 
