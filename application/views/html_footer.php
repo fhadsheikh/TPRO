@@ -12,6 +12,7 @@
 
 
     <div id="userID" style="display:none;"><?php echo $this->session->UserID; ?></div>
+    <div id="siteURL" style="display:none"><?php echo base_url(); ?></div>
     
     
     <!-- Framework JS -->    

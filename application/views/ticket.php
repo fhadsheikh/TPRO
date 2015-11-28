@@ -212,7 +212,11 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -225,7 +229,11 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -238,7 +246,11 @@
                             </div>
                             <div class="tabular-cell msg">
                                 <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
-                                <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
                                 <p><?php echo $comment->Body; ?></p>
                             </div>
                         </div>
@@ -250,7 +262,6 @@
 		</div>
 		</div>
 		<div class="col-md-3">
-           <div onload="fromNow(this)">test</div>
             <div id="pendingTask" class="panel panel-orange" style="border: none;">
                 <div class="panel-heading">
                     <h2 style="color:white"><i class="fa fa-exclamation-triangle"></i> Task Pending</h2>

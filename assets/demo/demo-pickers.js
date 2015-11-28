@@ -2,7 +2,7 @@ $(document).ready(function() {
 		// Date Range Picker
     
     
-        
+    var siteURL = $('#siteURL').text();
         
        window.oTable = $('#example').DataTable({
             "pageLength": 50
@@ -33,7 +33,7 @@ $(document).ready(function() {
                 $('#daterangepicker2 span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
                     $.ajax({
-                        url : "http://clockwork-fhad:8081/TPRO/triage/get/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                        url : siteURL+"triage/get/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                         dataType: 'json',
                         async: false,
                         success: function(s){
@@ -78,10 +78,10 @@ $(document).ready(function() {
             
 			$('#techPicker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                 
-                var urld = "http://clockwork-fhad:8081/TPRO/triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD');
+                var urld = siteURL+"triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD');
                 
                 $.ajax({
-                    url : "http://clockwork-fhad:8081/TPRO/triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                    url : siteURL+"triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                     dataType: 'json',
                     success: function(s){
                         
@@ -125,7 +125,7 @@ $(document).ready(function() {
                 
                             
                 $.ajax({
-                    url : "http://clockwork-fhad:8081/TPRO/triage/getTrainings/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                    url : siteURL+"triage/getTrainings/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                     dataType: 'json',
                     success: function(s){
                         trainingTable.clear().rows.add(s).draw();
@@ -161,7 +161,7 @@ $(document).ready(function() {
             
             $.ajax({
                 
-                url: "http://clockwork-fhad:8081/TPRO/triage/getForecast/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                url: siteURL+"triage/getForecast/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                 dataType: "json",
                 success: function(s){
                     

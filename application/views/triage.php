@@ -81,10 +81,6 @@
                     
                    
 			<div class="panel-body">
-                <div id="ticketAlert" class="alert alert-dismissable alert-danger">
-                    <i class="fa fa-fw fa-rocket"></i> Tickets have been updated
-                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>
-                </div>
 				<form action="" class="form-horizontal">
 					<div class="form-group ">
 						<div class="col-sm-2">

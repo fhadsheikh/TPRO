@@ -1,6 +1,7 @@
 $(document).ready(function(){
     
     var userID = $('#userID').text();
+    var siteURL = $('#siteURL').text();
     
     firstload();
     
@@ -22,7 +23,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/triage/getOpen",
+            url: siteURL+"/triage/getOpen",
             dataType: 'json',
             async: false,
             success: function(s){
@@ -75,7 +76,7 @@ $(document).ready(function(){
     $('#allTickets').click(function(){
         
         $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/tickets/getAllTickets",
+            url: siteURL+"/tickets/getAllTickets",
             dataType: 'json',
             success: function(s){
                 
@@ -98,7 +99,7 @@ $(document).ready(function(){
     $('#bugfix').click(function(){
         
         $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/tickets/getCategory/3",
+            url: siteURL+"/tickets/getCategory/3",
             dataType: 'json',
             success: function(s){
                 
@@ -121,7 +122,7 @@ $(document).ready(function(){
     $('#inquiry').click(function(){
         
         $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/tickets/getCategory/14",
+            url: siteURL+"/tickets/getCategory/14",
             dataType: 'json',
             success: function(s){
                 
@@ -169,7 +170,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: "POST",
-                url: "http://clockwork-fhad:8081/TPRO/tickets/reply",
+                url: siteURL+"/tickets/reply",
                 data: data,
                 success: function(s){
                     $('#ticketID').text('Sent');
@@ -187,6 +188,9 @@ $(document).ready(function(){
     $('#currentlyOpen').click(function(){
         $('#hideBox').slideToggle("slow");
     });
+    
+    $('#commentDetails').hide();
+    
     
     
     
@@ -236,7 +240,7 @@ $(document).ready(function(){
     });
     
     $.ajax({
-            url: "http://clockwork-fhad:8081/TPRO/user/getnotifications/"+userID,
+            url: siteURL+"/user/getnotifications/"+userID,
             dataType: 'json',
             async: false,
             success: function(s){

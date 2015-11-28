@@ -331,6 +331,7 @@ class Database_model extends CI_Model{
         $commentArray['IssueID'] = $comment->IssueID;
         $commentArray['UserID'] = $comment->UserID;
         $commentArray['Email'] = $comment->Email;
+        $commentArray['Recipients'] = $comment->Recipients;
                 
         $this->db->insert('comments', $commentArray);
     }
