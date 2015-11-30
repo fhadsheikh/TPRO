@@ -263,7 +263,7 @@
                                         <li><a href="<?php echo base_url('triage'); ?>"><i class="fa fa-crosshairs"></i><span>Triage</span></a></li>
                                         <li><a href="<?php echo base_url('tickets'); ?>"><i class="fa fa-tags"></i><span>Tickets</span></a></li>
                                         <li><a href="<?php echo base_url('support'); ?>"><i class="fa fa-support"></i><span>Support</span></a></li>
-                                        <li><a href="index.html"><i class="fa fa-bug"></i><span>QA</span></a></li>
+                                        <li><a href="<?php echo base_url('qa'); ?>"><i class="fa fa-bug"></i><span>QA</span></a></li>
                                         <li><a href="index.html"><i class="fa fa-users"></i><span>CRM</span></a></li>
                                         <li><a href="index.html"><i class="fa fa-users"></i><span>Project Management</span></a></li>
                                         

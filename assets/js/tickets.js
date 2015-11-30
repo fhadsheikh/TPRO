@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    
     var userID = $('#userID').text();
     var siteURL = $('#siteURL').text();
     

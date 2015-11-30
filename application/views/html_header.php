@@ -5,6 +5,9 @@
     <!-- PAGE TITLE -->
     <title>TPRO PORTAL - <?php echo $pageTitle; ?></title>
     
+    <!-- FAVICON -->
+    <link rel="icon" href="http://sneaselplushie.legends-station.com/images/icons/favicon-pokeball.ico" type="image/icon">
+    
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

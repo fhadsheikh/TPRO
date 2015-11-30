@@ -38,6 +38,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/application.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/demo/demo-pickers.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/tickets.js'); ?>"></script>
-
+    <script type="text/javascript" src="<?php echo base_url('assets/js/qa.js');?>"></script>
+    
     </body>
 </html>
