@@ -1,6 +1,6 @@
 <body class="focused-form" style="background-image:url(http://www.salbii.com/wp-content/themes/salbii/images/wp-admin/layout-backgrounds/bgimg3.jpg); background-size:cover">
     <div class="container" id="login-form">
-        <div class="row" style="margin-top:200px;">
+        <div class="row" style="margin-top:360px;">
             <div class="col-md-4 col-md-offset-4">
                 <form action="<?php echo base_url('user/authenticate'); ?>" method="post" class="form-horizontal" id="validate-form">
                     <div class="login-block">

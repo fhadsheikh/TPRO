@@ -32,6 +32,7 @@
     <link type="text/css" href="<?php echo base_url('assets/plugins/progress-skylo/skylo.css" rel="stylesheet'); ?>"> 	<!-- Skylo -->
     <link type="text/css" href="<?php echo base_url('assets/plugins/summernote/dist/summernote.css'); ?>" rel="stylesheet"> <!-- Summernote -->
 
+    <?php if(isset($refresher)){echo $refresher;}?>
     
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     
