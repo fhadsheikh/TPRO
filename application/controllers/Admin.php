@@ -4,6 +4,9 @@ class Admin extends CI_Controller {
     
     public function __construct(){
         parent::__construct();
+        
+        ($this->tech->isLoggedIn() ? : redirect('user/login') );
+        
         $this->load->model('Helpdesk_model');
         $this->load->model('Database_model');
         $this->load->model('Pusher_model');

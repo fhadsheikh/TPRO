@@ -1,60 +1,16 @@
-
-
-    <body class="focused-form">
-        
-        
-<div class="container" id="login-form">
-    <div class="row" style="padding: 100px 0px 10px 0px;">
-        <div class="col-md-4 col-md-offset-4">
-	       <a href="index.html" class="login-logo"><img src="<?php echo base_url('assets/images/clockwork_logo.png'); ?>"></a>
-        </div>   
+<body class="focused-form" style="background-image:url(http://www.salbii.com/wp-content/themes/salbii/images/wp-admin/layout-backgrounds/bgimg3.jpg); background-size:cover">
+    <div class="container" id="login-form">
+        <div class="row" style="margin-top:200px;">
+            <div class="col-md-4 col-md-offset-4">
+                <form action="<?php echo base_url('user/authenticate'); ?>" method="post" class="form-horizontal" id="validate-form">
+                    <div class="login-block">
+                        <input name="username" type="text" value="" placeholder="Username" id="username" />
+                        <input name="password" type="password" value="" placeholder="Password" id="password" />
+                        <button>Submit</button>
+                    </div>
+                    <a href="#" class="text-danger pull-right pr-lg" data-toggle="tooltip" data-placement="top" title="This application uses your HelpDesk password. Please change your password in the ticketing system if you have forgotten your password.">Forgot password?</a>
+                </form>
+                <img src="<?php echo base_url('assets/images/clockwork_logo.png'); ?>" style="position:fixed;bottom:50px;right:50px;">
+            </div>
         </div>
-        <div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-default">
-				<div class="panel-heading"><h2>Login Form</h2></div>
-				<div class="panel-body">
-					
-					<form action="<?php echo base_url('user/authenticate'); ?>" method="post" class="form-horizontal" id="validate-form">
-						<div class="form-group">
-	                        <div class="col-xs-12">
-	                        	<div class="input-group">							
-									<span class="input-group-addon">
-										<i class="fa fa-user"></i>
-									</span>
-									<input name="username" type="text" class="form-control" placeholder="Username" data-parsley-minlength="6" placeholder="At least 6 characters" required>
-								</div>
-	                        </div>
-						</div>
-
-						<div class="form-group">
-	                        <div class="col-xs-12">
-	                        	<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-key"></i>
-									</span>
-									<input type="password" class="form-control" name="password" placeholder="Password">
-								</div>
-	                        </div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-xs-12">
-								<a href="extras-forgotpassword.html" class="pull-right">Forgot password?</a>
-							</div>
-						</div>
-					
-
-						<div class="panel-footer">
-							<div class="clearfix">
-								<a href="extras-registration.html" class="btn btn-default pull-left">Register</a>
-                                <input type="submit" class="btn btn-primary pull-right" value="Login"></input>
-							</div>
-						</div>
-
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+    </div>

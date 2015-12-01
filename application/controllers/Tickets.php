@@ -8,6 +8,9 @@ class Tickets extends CI_Controller {
         $this->load->helper('date_helper');
         $this->load->model('Helpdesk_model');
         $this->load->model('Database_model');
+        $this->load->model('Gravatar_model');
+        
+        ($this->tech->isLoggedIn() ? : redirect('user/login') );
     }
     
     // PAGES
@@ -39,12 +42,29 @@ class Tickets extends CI_Controller {
         // Get ticket information from helpdesk API
         $data['ticket'] = $this->Helpdesk_model->getTicket($id);
         
+        // If ticket was not found then throw 404 error with details
+        if($data['ticket'] === NULL){
+                    $data['pageTitle'] = 'Ticket ID '.$id.' not found';
+                    $data['error'] = "Ticket $id not found";
+                    $data['details'] = "Please verify if the ticket exists in the helpdesk and you have permission to view it.";
+                    
+                    header("HTTP/1.1 404 Not Found");
+                    $this->load->view('html_header', $data);
+                    $this->load->view('headerbar');
+                    $this->load->view('404', $data);
+                    $this->load->view('infobar');
+                    $this->load->view('html_footer');   
+            return;
+        } 
+        
         // Get ticket comments
         $comments = $this->Helpdesk_model->getComments($id);
         
         // Format comment date
         foreach($comments as $key => $comment){
-            $comments[$key]->CommentDate = mysqlDateTimeFirst($comment->CommentDate);}
+            $comments[$key]->CommentDate = mysqlDateTimeFirst($comment->CommentDate);
+            $comments[$key]->Gravatar = $this->Gravatar_model->getGravatar($comment->Email);
+        }
         
         // Set comments array with formatted date into page variable
         $data['comments'] = $comments;
@@ -170,6 +190,11 @@ class Tickets extends CI_Controller {
     }
 
     
-
+    public function search(){
+        
+       $id = $this->input->post('ticketID');
+        redirect("tickets/ticket/$id");
+        
+    }
     
 }
