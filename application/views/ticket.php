@@ -1,4 +1,100 @@
+<!-- Modal -->
+<div class="modal fade" id="ticketSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search for a ticket</h4>
+      </div>
+      <div class="modal-body">
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input id="1" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control" autofocus>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="2" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="3" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="4" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create a new task</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal row-border" action="">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group m-n">
+                        <label class="col-sm-3 control-label">Title</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" value=""></input>
+                        </div>
+                    </div>
+                    <div class="form-group m-n">
+                        <label class="col-sm-3 control-label">Details</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control autosize" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group m-n">
+                        <label class="col-sm-3 control-label">Assign User</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="source">
+                                <optgroup label="Technicians">
+                                    <option value="AK">Azim Ahmed</option>
+                                    <option value="HI">Lester Siew</option>
+                                    <option value="HI">Mike James</option>
+                                    <option value="HI">Mark Kim</option>
+                                    <option value="HI">Krystel Ocampo</option>
+                                    <option value="HI">Sam Goria</option>
+                                </optgroup>
+                                <optgroup label="Developers">
+                                    <option value="CA">Mike Dinunzio</option>
+                                    <option value="NV">Maikel Garma</option>
+                                </optgroup>
+                                <optgroup label="Misc">
+                                    <option value="CA">Wayne Whitley</option>
+                                    <option value="NV">Mary Baddam</option>
+                                    <option value="OR">Fhad Sheikh</option>
+                                    <option value="OR">Charlene Bartlett</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button id="createTask" type="button" data-dismiss="modal" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="static-content">
     <div class="page-content">
         <ol class="breadcrumb">
@@ -8,32 +104,38 @@
         <div class="page-heading">            
             <h1>Ticket ID <span id="ticketID"><?php echo $ticket->TicketID; ?></span> - <?php echo $ticket->Subject; ?></h1>
                 <div class="options">
-                    <div class="btn-toolbar">
-                        <a href="#" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i></a>
-                    </div>
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="form-group">
+                            
+                                <div class="input-group">
+                                    <input id="ticketSearchTextBox" class="form-control" name="ticketID" placeholder="Search for a ticket..." type="text">
+                                    <div class="input-group-btn">
+                                        <button id="submitTicketSearch" type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </form>
                 </div>
         </div>
         <div class="container-fluid">
                                              
 	<div class="row">
         <div class="col-md-9">
-            <div class="input-group mb-lg">
-				<input class="form-control" placeholder="Search tickets..." type="text">
-				<span class="input-group-btn">
-					<a class="btn btn-primary" href="#"><i class="fa fa-fw fa-search"></i></a>
-				</span>
-			</div>
 			<div class="panel panel-inbox-read">
 				<div class="panel-body">
                     <div class="inbox-read-heading">
 						<div class="clearfix">
 							<div class="pull-left">
-						        <a href="app-inbox.html" class="btn btn-default"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
-						        <div class="btn-group">
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-archive"></i></a>
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-warning"></i></a>
-		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-trash-o"></i></a>
-		                        </div>
+						        <a href="#" id="" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-fw fa-level-up fa-rotate-270"></i></a>
+						        
+		                            <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Create Work Order"><i class="fa fa-fw fa-file-text"></i></a>
+		                            <a href="#" class="p-n" href="#" data-toggle="modal" data-target="#myModal">
+                                        <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="New Task"><i class="fa fa-fw fa-tasks"></i></span>
+                                    </a>
+                                    <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Submit Bug"><i class="fa fa-fw fa-bug"></i></a>
+		                        
+                                <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-fw fa-trash-o"></i></a>
 						        <div class="btn-group">
 						            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Bug Fix <i class="caret"></i></a>
 						            <ul class="dropdown-menu">
@@ -82,7 +184,7 @@
 					</div>
 				</div>
 			</div>
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="replyBox">
                 <div class="panel-heading">
                     <strong>Reply</strong>
                     <div class="pull-right">
@@ -91,7 +193,7 @@
                     </div>          
                                 
                 </div>
-                <div id="summernote" class="panel-body">
+                <div id="summernote" class="panel-body" style="min-height: 70px">
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -99,38 +201,84 @@
                     </div>
                 </div>
             </div>
-            <?php foreach($comments as $comment): ?>
+            <div class="panel panel-gray" style="margin-left:0px">
+			<div class="panel-body mailbox-panel" style="padding: 0px 24px 0px 0px">
+                <?php foreach($comments as $comment):?>
                 <?php if($comment->UserName == $ticket->SubmitterUserInfo->Username): ?>
-                    <div class="panel">
-                        <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px rgb(225, 127, 0);">
-                            <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
+                    <section class="tabular pl-md" style="border-left:solid 3px rgb(255, 127, 0);">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar; ?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <?php echo $comment->Body; ?>
-                        </div>
-                    </div>
+                    </section>
                 <?php elseif($comment->ForTechsOnly == true): ?>
-                    <div class="panel">
-                        <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px rgb(0, 210, 255);">
-                            <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
+                    <section class="tabular pl-md" style="border-left:solid 3px rgb(0, 210, 255);">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar; ?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <?php echo $comment->Body; ?>
-                        </div>
-                    </div>
+                    </section>
                 <?php else: ?>
-                <div class="panel">
-                    <div class="panel-heading" style="background-color:#fff; border-bottom: solid 1px #98E700;">
-                        <span class="pull-right"><strong><?php echo $comment->CommentDate; ?></strong></span> <strong><?php echo $comment->UserName; ?></strong>
-                    </div>
-                    <div class="panel-body">
-                        <?php echo $comment->Body; ?>
-                    </div>
-                </div>
-            
-            <?php endif; endforeach; ?>
+                    <section class="tabular pl-md" style="border-left:solid 3px #98E700">
+                        <div class="message tabular-row">
+                            <div class="tabular-cell avatar">
+                                <img src="<?php echo $comment->Gravatar;?>" alt="avatar" class="">
+                            </div>
+                            <div class="tabular-cell msg">
+                                <a href="#" class="msgee"><?php echo $comment->UserName; ?></a>
+                                <small><span class="pull-right"><span class="commentDate"><?php echo $comment->CommentDate; ?></span> <i class="fa fa-clock-o"></i></span></small>
+                                <div class="mb-md text-muted">
+                                    <small><span id="commentDetails">Comment was sent on <?php echo $comment->CommentDate; ?> by email to: <?php echo $comment->Recipients; ?>
+                                        </span></small>
+                                </div>
+                                <p><?php echo $comment->Body; ?></p>
+                            </div>
+                        </div>
+                    </section>
+                <?php endif; endforeach; ?>
+
+			</div>
+
+		</div>
 		</div>
 		<div class="col-md-3">
+            <div id="pendingTask" class="panel panel-orange" style="border: none;">
+                <div class="panel-heading">
+                    <h2 style="color:white"><i class="fa fa-exclamation-triangle"></i> Task Pending</h2>
+                </div>
+                <div class="panel-body p-md" style="background: #fafafa;color: black;">
+                    <dl>
+                        <dt>Details of Task #432</dt>
+                        <dd>Review attached security report</dd>
+                        <dt>Tech Status</dt>
+                        <dd>Waiting to get answers from developers</dd>
+                        <dt>Assigned to</dt>
+                        <dd>John Smith.</dd>                    
+                        <dt>Date Assigned</dt>
+                        <dd>23/11/2015</dd>
+                      </dl>
+                </div>
+            </div>
             <a class="btn btn-block btn-danger btn-compose" href="">Close Ticket</a>
             <div class="inbox-menu mt-lg">
 

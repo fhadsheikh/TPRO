@@ -81,67 +81,7 @@
 	</span>
 	
 	
-	<div class="yamm navbar-left navbar-collapse collapse in">
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<span class="caret"></span></a>
-				<ul class="dropdown-menu" style="width: 900px;">
-					<li>
-						<div class="yamm-content container-sm-height">
-							<div class="row row-sm-height yamm-col-bordered">
-								<div class="col-sm-3 col-sm-height yamm-col">
-                                            
-                                    <h3 class="yamm-category">Modues</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="layout-fixed-sidebars.html">Dashboard</a></li>
-                                        <li><a href="layout-sidebar-scroll.html">Reports</a></li>
-                                        <li><a href="layout-static-leftbar.html">Triage</a></li>
-                                        <li><a href="layout-leftbar-widgets.html">Tickets</a></li>   
-                                        <li><a href="layout-infobar-offcanvas.html">QA</a></li>
-                                        <li><a href="layout-infobar-overlay.html">CRM</a></li>
-                                        <li><a href="layout-chatbar-overlay.htm">Implementation</a></li>
-                                    </ul>
-                                    
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                    
-                                    <h3 class="yamm-category">Tools</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="layout-breadcrumb-top.html">Inbox</a></li>
-                                        <li><a href="layout-page-tabs.html">Tasks</a></li>
-                                        <li><a href="layout-fullheight-panel.html">Calendar</a></li>
-                                        <li><a href="layout-fullheight-content.html">Chat</a></li>
-                                    </ul>
 
-                                    <h3 class="yamm-category">Internal</h3>
-                                    <ul class="list-unstyled">
-                                    	<li><a href="layout-topnav-options.html">Resources</a></li>
-                                    </ul>
-                                    
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                    
-                                    <h3 class="yamm-category">External Links</h3>
-                                    <ul class="list-unstyled mb20">
-                                        <li><a href="charts-flot.html">Helpdesk</a></li>
-                                        <li><a href="charts-sparklines.html">Jira</a></li>
-                                        <li><a href="charts-morris.html">Confluence</a></li>
-                                        <li><a href="charts-easypiechart.html">Forum</a></li>
-                                    </ul>
-
-                                </div>
-                                <div class="col-sm-3 col-sm-height yamm-col">
-                                	<h3 class="yamm-category">About this App</h3>
-                                    <img src="<?php echo base_url('assets/images/clockwork_logo.png');?>" class="mb20 img-responsive" style="width: 100%;">
-                                    <p>Use this online web app to keep track of all your TechnoPro tasks.</p>
-                                </div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</li>
-        </ul>
-	</div>
 
 	<ul class="nav navbar-nav toolbar pull-right">
 		<li class="dropdown toolbar-icon-bg">
@@ -181,57 +121,15 @@
 
 		
 		<li class="dropdown toolbar-icon-bg">
-			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-bell"></i></span><span class="badge badge-info">5</span></a>
+			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-bell"></i></span><span id="notificationsBadge" class="badge badge-info"></span></a>
 			<div class="dropdown-menu dropdown-alternate notifications arrow">
 				<div class="dd-header">
 					<span>Notifications</span>
 					<span><a href="#">Settings</a></span>
 				</div>
 				<div class="scrollthis scroll-pane">
-					<ul class="scroll-content">
+					<ul id="notificationsBox" class="scroll-content">
 
-						<li class="">
-							<a href="#" class="notification-info">
-								<div class="notification-icon"><i class="fa fa-user fa-fw"></i></div>
-								<div class="notification-content">Profile Page has been updated</div>
-								<div class="notification-time">2m</div>
-							</a>
-						</li>
-						<li class="">
-							<a href="#" class="notification-success">
-								<div class="notification-icon"><i class="fa fa-check fa-fw"></i></div>
-								<div class="notification-content">Updates pushed successfully</div>
-								<div class="notification-time">12m</div>
-							</a>
-						</li>
-						<li class="">
-							<a href="#" class="notification-primary">
-								<div class="notification-icon"><i class="fa fa-users fa-fw"></i></div>
-								<div class="notification-content">New users request to join</div>
-								<div class="notification-time">35m</div>
-							</a>
-						</li>
-						<li class="">
-							<a href="#" class="notification-danger">
-								<div class="notification-icon"><i class="fa fa-shopping-cart fa-fw"></i></div>
-								<div class="notification-content">More orders are pending</div>
-								<div class="notification-time">11h</div>
-							</a>
-						</li>
-						<li class="">
-							<a href="#" class="notification-primary">
-								<div class="notification-icon"><i class="fa fa-arrow-up fa-fw"></i></div>
-								<div class="notification-content">Pending Membership approval</div>
-								<div class="notification-time">2d</div>
-							</a>
-						</li>
-						<li class="">
-							<a href="#" class="notification-info">
-								<div class="notification-icon"><i class="fa fa-check fa-fw"></i></div>
-								<div class="notification-content">Succesfully updated to version 1.0.1</div>
-								<div class="notification-time">40m</div>
-							</a>
-						</li>
 					</ul>
 				</div>
 				<div class="dd-footer">
@@ -240,6 +138,47 @@
 			</div>
 		</li>
 
+		<li class="dropdown toolbar-icon-bg hidden-xs">
+			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-tasks"></i></span></a>
+			<div class="dropdown-menu dropdown-alternate messages arrow">
+				<div class="dd-header">
+					<span>Tasks</span>
+				</div>
+
+				<div class="scrollthis scroll-pane">
+					<ul class="scroll-content">
+				        <li class="">
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title"><span style="">Autofind seat</span></div>
+                                        <div class="progress-percentage">Due Today</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" style="width: 75%"></div>
+                                    </div>
+                                </div>
+							</a>
+						</li>
+				        <li class="">
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">UI Design</div>
+                                        <div class="progress-percentage">75%</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-lime" style="width: 75%"></div>
+                                    </div>
+                                </div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="dd-footer"><a href="#">View all tasks</a></div>
+			</div>
+		</li>
 		<li class="dropdown toolbar-icon-bg hidden-xs">
 			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-envelope"></i></span></a>
 			<div class="dropdown-menu dropdown-alternate messages arrow">
@@ -251,63 +190,25 @@
 				<div class="scrollthis scroll-pane">
 					<ul class="scroll-content">
 						<li class="">
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_09.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">Steven Shipe</span>
-									<span class="msg">Nonummy nibh epismod lorem ipsum</span>
-								</div>
-								<span class="msg-time">30s</span>
+							<a class="p-sm" href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">UI Design</div>
+                                        <div class="progress-percentage">75%</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-lime" style="width: 75%"></div>
+                                    </div>
+                                </div>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_01.png" alt="avatar" />
 								<div class="msg-content">
 									<span class="name">Roxann Hollingworth <i class="fa fa-paperclip attachment"></i></span>
 									<span class="msg">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
 								</div>
 								<span class="msg-time">5m</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_05.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">Diamond Harlands</span>
-									<span class="msg">:)</span>
-								</div>
-								<span class="msg-time">3h</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_02.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">Michael Serio <i class="fa fa-paperclip attachment"></i></span>
-									<span class="msg">Sed distinctio dolores fuga molestiae modi?</span>
-								</div>
-								<span class="msg-time">12h</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_03.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">Matt Jones</span>
-									<span class="msg">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</span>
-								</div>
-								<span class="msg-time">2d</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img class="msg-avatar" src="assets/demo/avatar/avatar_07.png" alt="avatar" />
-								<div class="msg-content">
-									<span class="name">John Doe</span>
-									<span class="msg">Neque porro quisquam est qui dolorem</span>
-								</div>
-								<span class="msg-time">7d</span>
 							</a>
 						</li>
 					</ul>
@@ -344,7 +245,7 @@
                                 <div class="widget-body welcome-box tabular">
                                     <div class="tabular-row">
                                         <div class="tabular-cell welcome-avatar">
-                                            <a href="#"><img src="<?php echo base_url('assets/images/avatar.jpg'); ?>" class="avatar"></a>
+                                            <a href="#"><img src="<?php echo $this->session->gravatar; ?>" class="avatar"></a>
                                         </div>
                                         <div class="tabular-cell welcome-options">
                                             <span class="welcome-text">Welcome,</span>
@@ -362,7 +263,7 @@
                                         <li><a href="<?php echo base_url('triage'); ?>"><i class="fa fa-crosshairs"></i><span>Triage</span></a></li>
                                         <li><a href="<?php echo base_url('tickets'); ?>"><i class="fa fa-tags"></i><span>Tickets</span></a></li>
                                         <li><a href="<?php echo base_url('support'); ?>"><i class="fa fa-support"></i><span>Support</span></a></li>
-                                        <li><a href="index.html"><i class="fa fa-bug"></i><span>QA</span></a></li>
+                                        <li><a href="<?php echo base_url('qa'); ?>"><i class="fa fa-bug"></i><span>QA</span></a></li>
                                         <li><a href="index.html"><i class="fa fa-users"></i><span>CRM</span></a></li>
                                         <li><a href="index.html"><i class="fa fa-users"></i><span>Project Management</span></a></li>
                                         

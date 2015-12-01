@@ -1,3 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="ticketSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search for a ticket</h4>
+      </div>
+      <div class="modal-body">
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input id="1" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control" autofocus>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="2" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="3" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="4" type="text" data-numbers="true" maxlength="1" onkeyup="nextTextBox(this)" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
 <div class="static-content">
     <div class="page-content">
         <ol class="breadcrumb">
@@ -7,9 +42,18 @@
         <div class="page-heading mb0">            
             <h1><?php echo $pageTitle; ?></h1>
                 <div class="options">
-                    <div class="btn-toolbar">
-                        <a href="#" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i></a>
-                    </div>
+                    <form class="form-horizontal" action="<?php echo base_url('tickets/search'); ?>" method="post">
+                        <div class="form-group">
+                            
+                                <div class="input-group">
+                                    <input id="ticketSearchTextBox" class="form-control" name="ticketID" placeholder="Search for a ticket..." type="text">
+                                    <div class="input-group-btn">
+                                        <button id="submitTicketSearch" type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </form>
                 </div>
         </div>
         <div class="page-tabs">
@@ -37,10 +81,6 @@
                     
                    
 			<div class="panel-body">
-                <div id="ticketAlert" class="alert alert-dismissable alert-danger">
-                    <i class="fa fa-fw fa-rocket"></i> Tickets have been updated
-                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>
-                </div>
 				<form action="" class="form-horizontal">
 					<div class="form-group ">
 						<div class="col-sm-2">

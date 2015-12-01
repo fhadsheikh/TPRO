@@ -3355,7 +3355,6 @@ div.widget .contextual-progress:last-child {
 .contextual-progress {
   margin: 0 -17px;
   padding: 20px;
-  border-bottom: 1px solid #eeeeee;
 }
 .contextual-progress .progress-percentage {
   float: right;
@@ -7345,16 +7344,16 @@ body.layout-boxed .infobar-wrapper {
   padding: 0px !important;
 }
 #topnav.navbar-default .navbar-brand {
-  background: url("../img/logo.png") no-repeat -40px bottom;
+  background: url("") no-repeat -40px bottom;
 }
 #topnav .navbar-brand {
-  background: url("../img/logo.png") no-repeat -40px top;
+  background: url("") no-repeat -40px top;
 }
 body.topnav-collapsed #topnav.navbar-default .navbar-brand {
-  background: url("../img/logo.png") no-repeat -40px bottom;
+  background: url("") no-repeat -40px bottom;
 }
 body.topnav-collapsed #topnav .navbar-brand {
-  background: url("../img/logo.png") no-repeat -40px top;
+  background: url("") no-repeat -40px top;
 }
 @media print {
   .static-sidebar-wrapper,
