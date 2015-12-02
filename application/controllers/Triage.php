@@ -112,7 +112,7 @@ class Triage extends CI_Controller {
         $tickets = $this->Database_model->getOpen();
         
         foreach($tickets as $key => $ticket){
-            $data[$key][] = $ticket->IssueID;
+            $data[$key][] = '<a href="tickets/ticket/'.$ticket->IssueID.'">'.$ticket->IssueID.'</a>';
             $data[$key][] = $ticket->name;
             if($ticket->Priority == '1'){
                 $data[$key][] = "<span class='label label-danger'>$ticket->Subject</span>";
