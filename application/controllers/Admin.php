@@ -156,10 +156,8 @@ class Admin extends CI_Controller {
         }
 
         $this->Pusher_model->update();
- $data['refresher'] = '<meta http-equiv="refresh" content="5">';
+echo '<html><head><meta http-equiv="refresh" content="5"></head></html>';
 
-//        //Load views
-        $this->load->view('html_header', $data);
     }
     
     public function test(){
