@@ -11,7 +11,7 @@ class Pusher_model extends CI_Model{
         foreach($newTickets as $key => $newTicket){
             $data['ticketID'] = $newTicket['IssueID'];
             $data['body'] = $newTicket['Subject'];
-            $this->pusher->trigger('TPROAPP', 'newTicket', $data);
+            $this->pusher->trigger('ticketMonitor', 'newTicket', $data);
         }
     }
     
@@ -20,7 +20,7 @@ class Pusher_model extends CI_Model{
         $data['Name'] = $newComment->FirstName." ".$newComment->LastName;
         $data['body'] = strip_tags($newComment->Body);
         
-        echo $this->pusher->trigger('TPROAPP', 'newComment', $data);
+        echo $this->pusher->trigger('ticketMonitor', 'newComment', $data);
         
         echo "Pass";
         
@@ -30,7 +30,7 @@ class Pusher_model extends CI_Model{
         $data['ticketID'] = $ticket['IssueID']." ".$ticket['CompanyName'];
         $data['body'] = $ticket['Subject'];
         
-        $this->pusher->trigger('TPROAPP', 'newTicket', $data);
+        $this->pusher->trigger('ticketMonitor', 'newTicket', $data);
     }
     
     public function newComment($comment){
@@ -47,14 +47,14 @@ class Pusher_model extends CI_Model{
         
         
         
-        $this->pusher->trigger('TPROAPP', 'newComment', $data);
+        $this->pusher->trigger('ticketMonitor', 'newComment', $data);
         $this->pusher->trigger('tickdetMonitor', 'feed', $data2);
     }
     
     public function update(){
         $data['Name'] = 'Placeholder';
         
-        $this->pusher->trigger('TPROAPP', 'tickets_updated', $data);
+        $this->pusher->trigger('ticketMonitor', 'tickets_updated', $data);
         
     }
     

@@ -203,7 +203,7 @@ $(document).ready(function(){
     
     $('#ticketAlert').hide();
     
-    var channel = pusher.subscribe('TPROAPP');
+    var channel = pusher.subscribe('ticketMonitor');
     channel.bind('newTicket', function(data) {
         
         PNotify.desktop.permission(); (new PNotify({
@@ -220,7 +220,7 @@ $(document).ready(function(){
 					});
      });
     
-    var channel = pusher.subscribe('TPROAPP');
+    var channel = pusher.subscribe('ticketMonitor');
     channel.bind('newComment', function(data){
         
         

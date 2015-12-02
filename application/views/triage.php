@@ -339,11 +339,12 @@
 				</div><!-- /.modal -->
 
 <script type="text/javascript">
-    var channel = pusher.subscribe('TPROAPP');
+    var channel = pusher.subscribe('ticketMonitor');
     channel.bind('tickets_updated', function(data) {
+        console.log('pusher checkpoint');
             var siteURL = $('#siteURL').text();
             $.ajax({
-                url: siteURL+"/TPRO/triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                url: siteURL+"triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
                 dataType: 'json',
                 success: function(s){
                     oTable.clear().rows.add(s).draw();
