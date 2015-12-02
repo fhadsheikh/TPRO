@@ -351,6 +351,28 @@
 
             }
         });
+    channel.bind('newTicket', function(data) {
+        console.log('pusher checkpoint');
+            var siteURL = $('#siteURL').text();
+            $.ajax({
+                url: siteURL+"triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                dataType: 'json',
+                success: function(s){
+                    oTable.clear().rows.add(s).draw();
+
+            }
+        });
+    channel.bind('newComment', function(data) {
+        console.log('pusher checkpoint');
+            var siteURL = $('#siteURL').text();
+            $.ajax({
+                url: siteURL+"triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                dataType: 'json',
+                success: function(s){
+                    oTable.clear().rows.add(s).draw();
+
+            }
+        });
 //      $('#ticketAlert').slideDown();
 //    
 //        
