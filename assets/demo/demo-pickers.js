@@ -50,7 +50,7 @@ $(document).ready(function() {
                 });
         }
     
-        var techTable = $('#techs').DataTable({
+        window.techTable = $('#techs').DataTable({
              "order": [[ 1, "desc" ]],
              "paging":   false,
         "info":     false,
