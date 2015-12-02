@@ -116,7 +116,7 @@ class Admin extends CI_Controller {
                 
                 //Update Ticket
                 $this->Database_model->updateTicket($newTicket);
-                //$this->Pusher_model->update();
+                
                 
                 // Get comments for ticket
                 $comments2 = $this->Helpdesk_model->getComments($newTicket['IssueID']);
@@ -155,7 +155,7 @@ class Admin extends CI_Controller {
                 }
         }
 
-        
+        $this->Pusher_model->update();
  $data['refresher'] = '<meta http-equiv="refresh" content="5">';
 
 //        //Load views
