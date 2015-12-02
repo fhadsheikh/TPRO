@@ -351,6 +351,17 @@
 
             }
         });
+        
+        $.ajax({
+                    url : siteURL+"triage/getTechs/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                    dataType: 'json',
+                    success: function(s){
+                        
+                        techTable.clear().rows.add(s).draw();
+                        
+                       
+                    }
+                });
 //      $('#ticketAlert').slideDown();
 //    
 //        
