@@ -23,6 +23,19 @@ class QA extends CI_Controller {
         
     }
     
+    public function test(){
+        
+        $data['pageTitle'] = 'Quality Assurance';
+        
+        // Load Dashboard views
+        $this->load->view('html_header', $data);
+        $this->load->view('headerbar');
+        $this->load->view('test', $data);
+        $this->load->view('infobar');
+        $this->load->view('html_footer');
+        
+    }
+    
     public function testcase($id){
         
         $data['pageTitle'] = 'Quality Assurance';

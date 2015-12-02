@@ -341,8 +341,9 @@
 <script type="text/javascript">
     var channel = pusher.subscribe('TPROAPP');
     channel.bind('tickets_updated', function(data) {
+            var siteURL = $('#siteURL').text();
             $.ajax({
-                url: "http://clockwork-fhad:8081/TPRO/triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                url: siteURL+"/TPRO/triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
                 dataType: 'json',
                 success: function(s){
                     oTable.clear().rows.add(s).draw();
