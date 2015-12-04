@@ -248,7 +248,7 @@ $(document).ready(function(){
                 
                 for (var key in s){
                     
-                    $("<li class=''><a href='#' class='notification-info'><div class='notification-icon'><img width='40' src='"+s[key].Gravatar+"'></div><div class='notification-content'><strong>"+s[key].Name+"</strong><br>"+s[key].Message+"</div><div class='notification-time'>2m</div></a></li>").prependTo('#notificationsBox');
+                    $("<li class=''><a href='"+siteURL+"tickets/ticket/"+s[key].IssueID+"' class='notification-info'><div class='notification-icon'><img width='40' src='"+s[key].Gravatar+"'></div><div class='notification-content'><strong>"+s[key].Name+"</strong><br>"+s[key].Message+"</div><div class='notification-time'>2m</div></a></li>").prependTo('#notificationsBox');
                     }
                                 
                 $('#notificationsBadge').text(s.length);

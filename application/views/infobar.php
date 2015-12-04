@@ -133,7 +133,7 @@
                     <ul class="contact-list">
                         <li id="contact-1">
                             <a href="javascript:;"><img src="http://placehold.it/300&text=Placeholder" alt=""><span>Jeremy Potter</span></a>
-                            <!-- <div class="contact-card contactdetails" data-child-of="contact-1">
+                             <div class="contact-card contactdetails" data-child-of="contact-1">
                                 <div class="avatar">
                                     <img src="http://placehold.it/300&text=Placeholder" class="img-responsive img-circle">
                                 </div>
@@ -144,7 +144,7 @@
                                     <li><i class="fa fa-phone"></i>&nbsp;+1 234 567 890</li>
                                     <li><i class="fa fa-map-marker"></i>&nbsp;Hollywood Hills, California</li>
                                 </ul>
-                            </div> -->
+                            </div> 
                         </li>
                         <li id="contact-2">
                             <a href="javascript:;"><img src="http://placehold.it/300&text=Placeholder" alt=""><span>David Tennant</span></a>

@@ -85,3 +85,9 @@ function plainTime($unixDate){
     
     return $date;
 }
+
+function fromDate($date){
+    
+    $newDate = date( "g:i A - M d, Y", strtotime($date));
+    return $newDate;
+}

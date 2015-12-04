@@ -245,11 +245,11 @@
                                 <div class="widget-body welcome-box tabular">
                                     <div class="tabular-row">
                                         <div class="tabular-cell welcome-avatar">
-                                            <a href="#"><img src="<?php echo $this->session->gravatar; ?>" class="avatar"></a>
+                                            <a href="<?php echo base_url('user/profile')."/".$this->session->UserID; ?>"><img src="<?php echo $this->session->gravatar; ?>" class="avatar"></a>
                                         </div>
                                         <div class="tabular-cell welcome-options">
                                             <span class="welcome-text">Welcome,</span>
-                                            <a href="#" class="name"><?php  echo $this->session->FullName; ?></a>
+                                            <a href="<?php echo base_url('user/profile'); ?>" class="name"><?php  echo $this->session->FullName; ?></a>
                                         </div>
                                     </div>
                                 </div>
