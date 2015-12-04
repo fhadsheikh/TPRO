@@ -174,104 +174,6 @@ class Database_model extends CI_Model{
         return $result;
         
     }
-        
-//    // Checked
-//    public function checkChange($tickets){
-//        
-//        $lastTicket = plainTime($tickets['LastUpdated']);
-//        
-//        $date = date( "Y-m-d H:i:s", $lastTicket);
-//        
-//        $this->db->select('LastUpdated');
-//        $this->db->from('tickets');
-//        $this->db->limit(1);
-//        $this->db->order_by('LastUpdated', 'DESC');
-//        $query=$this->db->get();
-//        $result=$query->row();
-//        
-//        if($date == $result->LastUpdated){
-//            return false;
-//        } else { return true; }
-//        
-//    }
-//    
-//    // Checked
-//    public function latestUpdated($tickets){
-//        
-//        date_default_timezone_set('America/New_York');
-//        $hourAgo2 = date("Y-m-d H:i:s", strtotime('-15 minutes'));
-//        $hourAgo = strtotime($hourAgo2);
-//        
-//        foreach($tickets as $key => $ticket){
-//            
-//            $lastUpdated = plainTime($ticket['LastUpdated']);
-//            
-//            if($lastUpdated >= $hourAgo){
-//                $updatedTickets[] = $ticket;
-//            }
-//            
-//        }
-//        
-//        if(isset($updatedTickets)){
-//            return $updatedTickets;
-//        }
-//        
-//    }
-//    
-//    // Checked
-//    public function checkNew($tickets){
-//        
-//        foreach($tickets as $key => $ticket){
-//            
-//            $query = $this->db->query('SELECT * FROM tickets where IssueID ='.$ticket['IssueID']);
-//            $result = $query->result();
-//            
-//            if(count($result) <= 0){
-//                $newTickets[] = $ticket;
-//                return $newTickets;
-//            } else { return false;}
-//            
-//            
-//        }
-//        
-//        
-//    }
-//    
-//    // Checked
-//    public function newComments($comments){
-//        
-//        foreach($comments as $comment){
-//            
-//            $query = $this->db->query('SELECT * FROM comments where CommentID ='.$comment->CommentID);
-//            $result = $query->result();
-//            
-//            if(count($result) <= 0){
-//                $newComments[] = $comment;
-//                return $newComments;
-//            } else {return false;}
-//            
-//        }
-//        
-//    }
-//    
-//    // Checked
-//    public function insertComments($newComments){
-//        
-//        foreach($newComments as $key => $newComment){
-//            
-//            $comments[$key]['Body'] = $newComment->Body;
-//            $comments[$key]['CommentDate'] = mysqlDate($newComment->CommentDate);
-//            $comments[$key]['CommentID'] = $newComment->CommentID;
-//            $comments[$key]['FirstName'] = $newComment->FirstName;
-//            $comments[$key]['LastName'] = $newComment->LastName;
-//            
-//            $this->db->replace('comments', $comments[$key], 'CommentID');
-//            
-//        }
-//        
-//        
-//    }
-
     
     
     public function getLatestTicket(){
@@ -340,18 +242,10 @@ class Database_model extends CI_Model{
     // USER 
     
     public function getNotifications($userID){
-//        $this->db->select('users.FirstName, users.LastName, comments.UserID, users.helpdesk_id, comments.IssueID, tickets.IssueID, tickets.AssignedToUserID');
-//        $this->db->from('comments');
-//        $this->db->join('users', 'comments.UserID = users.helpdesk_id');
-//        $this->db->join('tickets', 'comments.IssueID = tickets.IssueID');
-//        $this->db->where('AssignedToUserID', $userID);
-//        $this->db->where('comments.UserID !=', $userID);
-//        
-//        $query = $this->db->get();
         
         $query = $this->db->query("
         
-            SELECT comments.Email, comments.IssueID, comments.CommentID, comments.Body, comments.FirstName, comments.LastName, tickets.UserName
+            SELECT comments.Email, comments.IssueID, comments.CommentID, comments.Body, comments.FirstName, comments.LastName, tickets.UserName, tickets.IssueID
 
             FROM comments
 
@@ -369,6 +263,20 @@ class Database_model extends CI_Model{
         $result = $query->result();
         
         return $result;
+        
+    }
+    
+    public function getComments($userID){
+        
+        $this->db->select('*');
+        $this->db->from('comments');
+        $this->db->where('userID', $userID);
+        $this->db->limit('10');
+        $query = $this->db->get();
+        $result = $query->result();
+        
+        return $result;
+        
         
     }
     
