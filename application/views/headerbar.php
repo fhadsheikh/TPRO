@@ -273,11 +273,6 @@
                                         <li><a href="app-inbox.html"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
                                         <li><a href="app-inbox.html"><i class="fa fa-comments-o"></i><span>Chat</span><span class="badge badge-success">3</span></a></li>
                                         
-                                        <li class="nav-separator">External Links</li>
-                                        <li><a href="app-inbox.html"><i class="fa fa-inbox"></i><span>Helpdesk</span><span class="badge badge-success">3</span></a></li>
-                                        <li><a href="app-tasks.html"><i class="fa fa-tasks"></i><span>Jira</span><span class="badge badge-info">7</span></a></li>
-                                        <li><a href="app-notes.html"><i class="fa fa-pencil-square-o"></i><span>Confluence</span></a></li>
-
                                         
                                         
 

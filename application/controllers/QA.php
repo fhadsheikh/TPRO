@@ -48,6 +48,15 @@ class QA extends CI_Controller {
         $this->load->view('html_footer');
         
     }
+    
+    public function getCase($id){
+        
+        $this->load->model('Database_model');
+        $techs = $this->Database_model->getTechs();
+        
+        echo json_encode($techs[$id]);
+        
+    }
 
 
 }

@@ -163,6 +163,16 @@ class Database_model extends CI_Model{
         if(!isset($result->name)){
             return '<span class="label label-warning" style="color:black;">Unassigned</span>';
         } else { return $result->name; }
+    }    
+    // Checked
+    public function lookupTechByName($name){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('name', $name);
+        $query = $this->db->get();
+        $result = $query->row();
+        
+        return $result->helpdesk_id;
     }
     
     // Checked
@@ -265,19 +275,42 @@ class Database_model extends CI_Model{
         return $result;
         
     }
+    public function getMentions($userID){
+        
+        $query = $this->db->query("
+        
+            SELECT comments.Email, comments.IssueID, comments.CommentID, comments.CommentDate, comments.Body, comments.FirstName, comments.LastName, tickets.UserName, tickets.IssueID
+
+            FROM comments
+
+            LEFT JOIN users ON users.helpdesk_id = comments.UserID
+
+            LEFT JOIN tickets ON tickets.IssueID = comments.IssueID
+
+            WHERE tickets.AssignedToUserID = $userID AND comments.UserID != $userID
+
+            ORDER BY comments.commentID DESC
+
+            LIMIT 10 
+        
+        ");
+        $result = $query->result();
+        
+        return $result;
+        
+    }
     
     public function getComments($userID){
         
         $this->db->select('*');
         $this->db->from('comments');
         $this->db->where('userID', $userID);
-        $this->db->limit('10');
+        $this->db->limit('20');
+        $this->db->order_by('CommentID', 'DESC');
         $query = $this->db->get();
         $result = $query->result();
         
         return $result;
-        
-        
     }
     
 }

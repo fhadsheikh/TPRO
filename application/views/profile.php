@@ -20,7 +20,7 @@
                                 <div class="contact-name"><?php echo $user['0']->name; ?></div>
                                 <div class="contact-status">Project Manager</div>
                                 <ul class="details">
-                                    <li><a href="#">heyfromsmith@themex.co</a></li>
+                                    <li><a href="#"><?php echo $user['0']->email; ?></a></li>
                                     <li>+1 234 567 890</li>
                                     <li><?php echo $geoLocation->city.", ".$geoLocation->region_code; ?></li>
                                 </ul>
@@ -71,9 +71,29 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab2">
+                                        <div class="mt-lg"></div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel-body mailbox-panel p-n">
+                                                    <section class="tabular">
+                                                        <?php foreach($mentions as $comment): ?>
+                                                        <div class="message tabular-row">
+                                                            <div class="tabular-cell avatar">
+                                                                <a href="<?php echo base_url('user/profile'); ?>"><img src="<?php echo $comment->Gravatar; ?>" class="avatar" ></a>
+                                                            </div>
+                                                            <div class="tabular-cell msg">
+                                                                <a href="#" class="msgee"><?php if($comment->FirstName){echo $comment->FirstName." ".$comment->LastName;} else {echo $comment->Email;} ?></a> <?php if(isset($comment->Subject)){echo $comment->Subject;}; ?> <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                                                <?php if(isset($comment->Detail)){echo "<div class='p-md m-md' style='background:rgb(251, 251, 251) none repeat scroll 0% 0%; border: 1px solid rgb(228, 228, 228);'><p>".$comment->Detail."</p></div>";} ?>
+                                                            </div>
+                                                        </div>
+                                                        <?php endforeach; ?>
+                                                    </section>
 
-                                        sdfsdf
+                                                </div>
 
+                                            </div>
+                                           
+                                        </div>
                                     </div>
                                     <div class="tab-pane" id="tab3">
 

@@ -263,6 +263,87 @@ $(document).ready(function(){
             $(this).text(newDate);
         });
     
+        $('.testcase').on('click',function(evt){
+              var id = this.id;
+            
+                console.log(siteURL+"qa/getCase/"+id)
+              
+                $.ajax({
+                    url: siteURL+"qa/getCase/"+id,
+                    dataType: 'json',
+                    async: false,
+                    success: function(s){
+                        
+                        $(document).skylo('show',function(){
+                            $(document).skylo('set',50);
+                        });
+                        
+                        $('#title').text(s.name);
+                        
+                        $(document).skylo('show',function(){
+                            $(document).skylo('end');
+                        });
+                    }
+                });
+            })
+        
+            $('#untested').click(function(){
+                $('.untested').each(function(){
+                    $(this).toggle();
+                });
+            });
+    
+            $('#fail').click(function(){
+                $('.fail').each(function(){
+                    $(this).toggle();
+                });
+            });
+    
+    $(".js-example-basic-multiple").select2({
+        placeholder: "Filter cases"
+    });
+    
+    $.ajax({
+                    url: siteURL+"qa/getCase/1",
+                    dataType: 'json',
+                    async: false,
+                    success: function(s){
+                        
+                        $(document).skylo('show',function(){
+                            $(document).skylo('set',50);
+                        });
+                        
+                        $('#title').text(s.name);
+                        
+                        $(document).skylo('show',function(){
+                            $(document).skylo('end');
+                        });
+                    }
+                });
+    
+    $('.js-example-basic-multiple').change(function(){
+        
+        
+        
+        var theID = $('.js-example-basic-multiple').select2().val();
+        console.log(theID);
+        
+        
+        
+        
+        if(theID == null){
+        $('.test').show();
+        }else{
+            $('.test').hide();
+            var arrayLength = theID.length;
+            for (var i = 0; i < arrayLength; i++) {
+                $('.'+theID[i]).show();
+            }
+        }
+        
+        
+    });
+    
 //        var commentDate = $("#commentDate").text();
 //        var newDate = moment(commentDate, 'h:mm A - MMM DD, YYYY').fromNow();
 //        

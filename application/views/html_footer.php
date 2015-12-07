@@ -33,7 +33,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/progress-skylo/skylo.js'); ?>"></script> 		            <!-- Skylo -->
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/summernote/dist/summernote.js'); ?>"></script>  	        <!-- Summernote -->
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/switchery/switchery.js');?>"></script>     				    <!-- Switchery -->
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <!-- Custom JS -->
     <script type="text/javascript" src="<?php echo base_url('assets/js/application.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/demo/demo-pickers.js'); ?>"></script>

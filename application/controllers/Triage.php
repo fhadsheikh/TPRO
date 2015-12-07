@@ -113,7 +113,7 @@ class Triage extends CI_Controller {
         
         foreach($tickets as $key => $ticket){
             $data[$key][] = '<a href="tickets/ticket/'.$ticket->IssueID.'">'.$ticket->IssueID.'</a>';
-            $data[$key][] = $ticket->name;
+            $data[$key][] = '<a href="'.base_url().'user/profile/'.$ticket->AssignedToUserID.'">'.$ticket->name."</a>";;
             if($ticket->Priority == '1'){
                 $data[$key][] = "<span class='label label-danger'>$ticket->Subject</span>";
             } else {

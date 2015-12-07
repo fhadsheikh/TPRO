@@ -19,6 +19,7 @@ class User extends CI_Controller {
         $this->load->model('Database_model');
         $this->load->model('Gravatar_model');
         $this->load->model('Geo_model');
+        $this->load->library('Html2Text');
         
     }
         
@@ -97,35 +98,70 @@ class User extends CI_Controller {
     
     public function profile($userID){
         
+                ($this->tech->isLoggedIn() ? : redirect('user/login'));
+
+        
         $data['geoLocation'] = $this->Geo_model->getLocation($this->session->IPAddress);
         
         $data['user'] = $this->Database_model->getUser($userID);
         
         $data['gravatar'] = $this->Gravatar_model->getGravatar($data['user'][0]->email);
         
-        $comments = array_reverse($this->Database_model->getComments($userID));
+        $comments = $this->Database_model->getComments($userID);
+        $mentions = $this->Database_model->getMentions($userID);
         
         foreach($comments as $key => $comment){
-            if(strlen($comment->Body) > 40) {
-                $comment->Subject = 'replied to ticket #<a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
-                $comment->Detail = $comment->Body;
-            }else {
-                $comment->Subject = $comment->Body;
-            }
             
-            if($comment->Body == 'New ticket submitted'){
-                $comment->Subject = 'submitted a new ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+            $link = '<a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+            
+            if($comment->Body == 'New ticket submitted (email)'){
+                $comment->Subject = 'submitted a new ticket '.$link;
             } elseif($comment->Body == 'The ticket has been taken'){
-                $comment->Subject = 'took over ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+                $comment->Subject = 'took over ticket '.$link;
             } elseif(strpos($comment->Body, 'The ticket has been re-opened')){
-                $comment->Subject = 're-opened ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+                $comment->Subject = 're-opened ticket '.$link;
             } elseif($comment->Body == 'The ticket has been closed'){
-                $comment->Subject = 'closed ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+                $comment->Subject = 'closed ticket '.$link;
+            } elseif(strpos($comment->Body, 'ticket has been assigned to technician:')){
+                $subjectSplit = explode(":", $comment->Body);
+                $techLink = '<a href="'.$this->Database_model->lookupTechByName(trim($subjectSplit[1])).'">'.$subjectSplit[1]."</a>";
+                $comment->Subject = 'assigned ticket '.$link.' to '.$techLink;
+            }else {
+                $comment->Subject = 'replied to ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+                $comment->Detail = strip_tags($comment->Body);
             }
             
             if(isset($comment->CommentDate)){
                 $comment->CommentDate = fromDate($comment->CommentDate);
             }
+        }
+        
+        foreach($mentions as $key => $comment){
+            
+            $link = '<a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+            
+            if($comment->Body == 'New ticket submitted'){
+                $comment->Subject = 'submitted a new ticket '.$link;
+            } elseif($comment->Body == 'The ticket has been taken'){
+                $comment->Subject = 'took over ticket '.$link;
+            } elseif(strpos($comment->Body, 'The ticket has been re-opened')){
+                $comment->Subject = 're-opened ticket '.$link;
+            } elseif($comment->Body == 'The ticket has been closed'){
+                $comment->Subject = 'closed ticket '.$link;
+            } elseif(strpos($comment->Body, 'ticket has been assigned to technician:')){
+                $subjectSplit = explode(":", $comment->Body);
+                $techLink = '<a href="'.$this->Database_model->lookupTechByName(trim($subjectSplit[1])).'">'.$subjectSplit[1]."</a>";
+                $comment->Subject = 'assigned ticket '.$link.' to '.$techLink;
+            }else {
+                $comment->Subject = 'replied to ticket <a href='.base_url().'tickets/ticket/'.$comment->IssueID.'>#'.$comment->IssueID.'</a>';
+                $comment->Detail = $this->tech->strip_html_tags($comment->Body);
+            }
+            
+            if(isset($comment->CommentDate)){
+                $comment->CommentDate = fromDate($comment->CommentDate);
+            }
+            
+            $comment->Gravatar = $this->Gravatar_model->getGravatar($comment->Email);
         }
         
         $users = $this->Database_model->getTechs();
@@ -136,7 +172,7 @@ class User extends CI_Controller {
         
         $data['users'] = $users;
         $data['comments'] = $comments;
-        
+        $data['mentions'] = $mentions;
         $data['pageTitle'] = 'Profile';
         
         // Load Dashboard views
