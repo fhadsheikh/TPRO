@@ -1,7 +1,7 @@
 <div class="static-content">
     <div class="page-content p-n">
         <div class="page-heading m-n">            
-            <h1>You are now viewing <strong>all</strong> test cases for <strong>ClockWork Client</strong> version <strong>5.15.1.23</strong></h1>
+            <h1>You are now viewing test cases for <strong>ClockWork Client</strong> version <strong>5.15.1.23</strong></h1>
         </div>
         <div class="container-fluid p-n">
             <div class="row">
@@ -12,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3" >
-                    <div class="full-height-content scroll-pane" >
+                    <div class="full-height-content scroll-pane" style="border-right:1px solid rgb(238, 238, 238)">
                         <div class="scroll-content p-n" tabindex="0">
                             
                     <div style="background:white;">
@@ -48,15 +48,22 @@
                             </optgroup>
                         </select>
                     </div>
-                            
-                                <a href="#" class="test reports azim untested"><div id="1" class="testcase p-md" m-md style="border-bottom: 1px solid #ededed; background: #f5f5f5;">
-                                    1.1 - Book an appointment <label class="label label-orange pull-right">Untested</label>
-                                </div>
-                            </a>
-                                <a href="#" class="test failed"><div id="2" class="testcase p-md" m-md style="border-bottom: 1px solid #ededed; background: #f5f5f5;">
-                                    1.1 - Delete an appointment <label class="label label-danger pull-right">Fail</label>
-                                    </div></a>
-                            
+                            <ul class="list-unstyled">
+                                <li class="qa-testcase-list test reports azim untested">
+                                   
+                                        <div id="1" class="testcase p-md">
+                                            1.1 - Book an appointment <label class="label label-orange pull-right">Untested</label>
+                                        </div>
+                                    
+                                </li>
+                                <li class="qa-testcase-list test failed">
+                                    
+                                        <div id="1" class="testcase p-md">
+                                             1.1 - Delete an appointment <label class="label label-danger pull-right">Fail</label>
+                                        </div>
+                                    
+                                </li>
+                            </ul>
                         </div>
                     <div class="scroll-track"><div class="scroll-thumb" style="height: 75px; transform: translate(0px, 0px);"></div></div></div>
                 </div>

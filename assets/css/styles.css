@@ -526,3 +526,16 @@ color: white;
         .login-block button:hover {
             background: #ff7b81;
         }
+
+.qa-testcase-list{
+    background: #FFF;
+    border-bottom: 1px solid #ededed;
+    cursor: pointer;
+}
+
+.qa-testcase-list:hover{
+    background: #F8F8F8 ;
+    border-bottom: 1px solid #ededed;
+    
+    cursor: pointer;
+}

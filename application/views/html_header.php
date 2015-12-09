@@ -31,7 +31,7 @@
     <link type="text/css" href="<?php echo base_url('assets/plugins/form-daterangepicker/daterangepicker-bs3.css') ;?>" rel="stylesheet"> 	<!-- DateRangePicker -->
     <link type="text/css" href="<?php echo base_url('assets/plugins/progress-skylo/skylo.css" rel="stylesheet'); ?>"> 	<!-- Skylo -->
     <link type="text/css" href="<?php echo base_url('assets/plugins/summernote/dist/summernote.css'); ?>" rel="stylesheet"> <!-- Summernote -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <link type="text/css" href="<?php echo base_url('assets/plugins/form-select2/select2.css'); ?>" rel="stylesheet" />
     
     <?php if(isset($refresher)){echo $refresher;}?>
     
