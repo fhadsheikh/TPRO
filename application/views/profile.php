@@ -57,7 +57,7 @@
                                                                 <a href="<?php echo base_url('user/profile'); ?>"><img src="<?php echo $gravatar; ?>" class="avatar" ></a>
                                                             </div>
                                                             <div class="tabular-cell msg">
-                                                                <a href="#" class="msgee"><?php echo $comment->FirstName." ".$comment->LastName; ?></a> <?php if(isset($comment->Subject)){echo $comment->Subject;}; ?> <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                                                <a href="#" class="msgee"><?php echo $comment->Name; ?></a> <?php if(isset($comment->Subject)){echo $comment->Subject;}; ?> <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
                                                                 <?php if(isset($comment->Detail)){echo "<div class='p-md m-md' style='background:rgb(251, 251, 251) none repeat scroll 0% 0%; border: 1px solid rgb(228, 228, 228);'><p>".$comment->Detail."</p></div>";} ?>
                                                             </div>
                                                         </div>
@@ -82,7 +82,7 @@
                                                                 <a href="<?php echo base_url('user/profile'); ?>"><img src="<?php echo $comment->Gravatar; ?>" class="avatar" ></a>
                                                             </div>
                                                             <div class="tabular-cell msg">
-                                                                <a href="#" class="msgee"><?php if($comment->FirstName){echo $comment->FirstName." ".$comment->LastName;} else {echo $comment->Email;} ?></a> <?php if(isset($comment->Subject)){echo $comment->Subject;}; ?> <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
+                                                                <a href="#" class="msgee"><?php echo $comment->Name; ?></a> <?php if(isset($comment->Subject)){echo $comment->Subject;}; ?> <small><span class="pull-right commentDate"><?php echo $comment->CommentDate; ?></span></small>
                                                                 <?php if(isset($comment->Detail)){echo "<div class='p-md m-md' style='background:rgb(251, 251, 251) none repeat scroll 0% 0%; border: 1px solid rgb(228, 228, 228);'><p>".$comment->Detail."</p></div>";} ?>
                                                             </div>
                                                         </div>

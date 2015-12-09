@@ -248,8 +248,10 @@ $(document).ready(function(){
                 
                 for (var key in s){
                     
-                    $("<li class=''><a href='"+siteURL+"tickets/ticket/"+s[key].IssueID+"' class='notification-info'><div class='notification-icon'><img width='40' src='"+s[key].Gravatar+"'></div><div class='notification-content'><strong>"+s[key].Name+"</strong><br>"+s[key].Message+"</div><div class='notification-time'>2m</div></a></li>").prependTo('#notificationsBox');
+                    $("<li class=''><a href='"+siteURL+"tickets/ticket/"+s[key].IssueID+"' class='notification-info'><div class='notification-icon'><img width='40' src='"+s[key].Gravatar+"'></div><div class='notification-content'><strong>"+s[key].Name+"</strong><br>"+s[key].Subject+"</div><div class='notification-time'>2m</div></a></li>").prependTo('#notificationsBox');
                     }
+                
+                console.log(s);
                                 
                 $('#notificationsBadge').text(s.length);
             }
@@ -263,29 +265,29 @@ $(document).ready(function(){
             $(this).text(newDate);
         });
     
-        $('.testcase').on('click',function(evt){
-              var id = this.id;
-            
-                console.log(siteURL+"qa/getCase/"+id)
-              
-                $.ajax({
-                    url: siteURL+"qa/getCase/"+id,
-                    dataType: 'json',
-                    async: false,
-                    success: function(s){
-                        
-                        $(document).skylo('show',function(){
-                            $(document).skylo('set',50);
-                        });
-                        
-                        $('#title').text(s.name);
-                        
-                        $(document).skylo('show',function(){
-                            $(document).skylo('end');
-                        });
-                    }
-                });
-            })
+//        $('.testcase').on('click',function(evt){
+//              var id = this.id;
+//            
+//                console.log(siteURL+"qa/getCase/"+id)
+//              
+//                $.ajax({
+//                    url: siteURL+"qa/getCase/"+id,
+//                    dataType: 'json',
+//                    async: false,
+//                    success: function(s){
+//                        
+//                        $(document).skylo('show',function(){
+//                            $(document).skylo('set',50);
+//                        });
+//                        
+//                        $('#title').text(s.name);
+//                        
+//                        $(document).skylo('show',function(){
+//                            $(document).skylo('end');
+//                        });
+//                    }
+//                });
+//            })
         
             $('#untested').click(function(){
                 $('.untested').each(function(){
@@ -303,23 +305,23 @@ $(document).ready(function(){
         placeholder: "Filter cases"
     });
     
-    $.ajax({
-                    url: siteURL+"qa/getCase/1",
-                    dataType: 'json',
-                    async: false,
-                    success: function(s){
-                        
-                        $(document).skylo('show',function(){
-                            $(document).skylo('set',50);
-                        });
-                        
-                        $('#title').text(s.name);
-                        
-                        $(document).skylo('show',function(){
-                            $(document).skylo('end');
-                        });
-                    }
-                });
+//    $.ajax({
+//                    url: siteURL+"qa/getCase/1",
+//                    dataType: 'json',
+//                    async: false,
+//                    success: function(s){
+//                        
+//                        $(document).skylo('show',function(){
+//                            $(document).skylo('set',50);
+//                        });
+//                        
+//                        $('#title').text(s.name);
+//                        
+//                        $(document).skylo('show',function(){
+//                            $(document).skylo('end');
+//                        });
+//                    }
+//                });
     
     $('.js-example-basic-multiple').change(function(){
         
