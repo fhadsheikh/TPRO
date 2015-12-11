@@ -24,7 +24,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            url: siteURL+"/triage/getOpen",
+            url: siteURL+"/api/getOpen",
             dataType: 'json',
             async: false,
             success: function(s){
@@ -241,7 +241,7 @@ $(document).ready(function(){
     });
     
     $.ajax({
-            url: siteURL+"/user/getnotifications/"+userID,
+            url: siteURL+"/api/getnotifications/"+userID,
             dataType: 'json',
             async: false,
             success: function(s){

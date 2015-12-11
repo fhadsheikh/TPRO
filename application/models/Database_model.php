@@ -134,9 +134,17 @@ class Database_model extends CI_Model{
     }
     
     // Checked
-    public function getTechs(){
+    public function getTechs($techOnly = false){
         
-        $query = $this->db->query('SELECT * FROM users');
+        if($techOnly === FALSE)
+        {
+            $query = $this->db->query('SELECT * FROM users');
+        }
+        else
+        {
+            $query = $this->db->query('SELECT * FROM users where Tech = 1');
+        }
+        
         $result = $query->result();
         return $result;
         

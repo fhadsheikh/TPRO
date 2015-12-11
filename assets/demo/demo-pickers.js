@@ -33,7 +33,7 @@ $(document).ready(function() {
                 $('#daterangepicker2 span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
                     $.ajax({
-                        url : siteURL+"triage/get/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                        url : siteURL+"api/getTickets/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                         dataType: 'json',
                         async: false,
                         success: function(s){
@@ -78,10 +78,10 @@ $(document).ready(function() {
             
 			$('#techPicker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                 
-                var urld = siteURL+"triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD');
+                var urld = siteURL+"api/getTechStats/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD');
                 
                 $.ajax({
-                    url : siteURL+"triage/getTechs/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                    url : siteURL+"api/getTechStats/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                     dataType: 'json',
                     success: function(s){
                         
@@ -125,7 +125,7 @@ $(document).ready(function() {
                 
                             
                 $.ajax({
-                    url : siteURL+"triage/getTrainings/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
+                    url : siteURL+"api/getTrainings/"+start.format('YYYY-MM-DD')+"/"+end.format('YYYY-MM-DD'),
                     dataType: 'json',
                     success: function(s){
                         trainingTable.clear().rows.add(s).draw();

@@ -344,7 +344,7 @@
         console.log('pusher checkpoint');
             var siteURL = $('#siteURL').text();
             $.ajax({
-                url: siteURL+"triage/get/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                url: siteURL+"api/getTickets/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
                 dataType: 'json',
                 success: function(s){
                     oTable.clear().rows.add(s).draw();
@@ -353,7 +353,7 @@
         });
         
         $.ajax({
-                    url : siteURL+"triage/getTechs/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
+                    url : siteURL+"api/getTechStats/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
                     dataType: 'json',
                     success: function(s){
                         
