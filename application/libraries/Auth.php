@@ -17,6 +17,7 @@ class Auth {
         $this->CI->load->config('pusher');
         $this->CI->load->model('Gravatar_model');
         $this->CI->load->config('pusher');
+        $this->CI->load->config('settings');
         
     }
     
@@ -34,6 +35,7 @@ class Auth {
             $this->CI->session->set_userdata('LoggedIn', 'true'); 
             $this->CI->session->set_userdata('pusher_api_key', $this->CI->config->item('pusher_api_key'));
             $this->CI->session->set_userdata('gravatar', $this->CI->Gravatar_model->getGravatar($this->CI->session->Email));
+            $this->CI->session->set_userdata('modules', $this->CI->config->item('modules'));
         }
         else{
             $this->auth_error = "Authentication_Failed";

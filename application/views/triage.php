@@ -348,11 +348,12 @@
                 dataType: 'json',
                 success: function(s){
                     oTable.clear().rows.add(s).draw();
+                    commentDate();
 
-            }
-        });
+                    }
+                });
         
-        $.ajax({
+                $.ajax({
                     url : siteURL+"api/getTechStats/<?php echo date("Y-m-d")."/".date("Y-m-d");?>",
                     dataType: 'json',
                     success: function(s){
@@ -362,6 +363,19 @@
                        
                     }
                 });
+        
+         $.ajax({
+            url: siteURL+"/api/getOpen",
+            dataType: 'json',
+            async: false,
+            success: function(s){
+
+                openTable.clear().rows.add(s).draw();
+
+            }
+        });
+        
+        
 //      $('#ticketAlert').slideDown();
 //    
 //        

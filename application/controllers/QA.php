@@ -6,7 +6,8 @@ class QA extends CI_Controller {
         
         parent::__construct();
     
-        ($this->tech->isLoggedIn() ? : redirect('user/login'));
+        ($this->auth->is_logged_in() ? : redirect('user/login') );
+
 
     }
     

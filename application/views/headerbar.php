@@ -258,23 +258,15 @@
                                 <nav role="navigation" class="widget-body">
                                     <ul class="acc-menu">
                                         <li class="nav-separator">Modules</li>
-                                        <li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
-                                        <li><a href="<?php echo base_url('reports'); ?>"><i class="fa fa-bar-chart-o"></i><span>Reports</span></a></li>
-                                        <li><a href="<?php echo base_url('triage'); ?>"><i class="fa fa-crosshairs"></i><span>Triage</span></a></li>
-                                        <li><a href="<?php echo base_url('tickets'); ?>"><i class="fa fa-tags"></i><span>Tickets</span></a></li>
-                                        <li><a href="<?php echo base_url('support'); ?>"><i class="fa fa-support"></i><span>Support</span></a></li>
-                                        <li><a href="<?php echo base_url('qa'); ?>"><i class="fa fa-bug"></i><span>QA</span></a></li>
-                                        <li><a href="index.html"><i class="fa fa-users"></i><span>CRM</span></a></li>
-                                        <li><a href="index.html"><i class="fa fa-users"></i><span>Project Management</span></a></li>
                                         
-                                        <li class="nav-separator">Tools</li>
-                                        <li><a href="app-inbox.html"><i class="fa fa-inbox"></i><span>Inbox</span><span class="badge badge-success">3</span></a></li>
-                                        <li><a href="app-inbox.html"><i class="fa fa-tasks"></i><span>To Do</span><span class="badge badge-danger">30</span></a></li>
-                                        <li><a href="app-inbox.html"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
-                                        <li><a href="app-inbox.html"><i class="fa fa-comments-o"></i><span>Chat</span><span class="badge badge-success">3</span></a></li>
+                                        <?php foreach($this->session->modules as $key => $module): ?>
+                                        <?php if($module['enabled']): ?>
                                         
-                                        
-                                        
+                                            <li><a href="<?php echo $module['link']; ?>"><i class="<?php echo $module['icon']; ?>"></i><span><?php echo $module['name']; ?></span></a></li>
+
+                                            
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
 
                                     </ul>
                                 </nav>

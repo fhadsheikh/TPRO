@@ -122,7 +122,7 @@
                                              
 	<div class="row">
         <div class="col-md-9">
-			<div class="panel panel-inbox-read">
+			<div class="panel panel-inbox-read" style="border-left: 1px solid #eeeeee">
 				<div class="panel-body">
                     <div class="inbox-read-heading">
 						<div class="clearfix">
@@ -166,7 +166,7 @@
 						        </div>
 						    </div>
 						    <div class="pull-right">
-						    	<strong>1</strong> of <strong>141</strong>&nbsp;
+						    	<strong>1</strong> of <strong>12</strong>&nbsp;
 						    	<div class="btn-group">
 		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-angle-left"></i></a>
 		                            <a href="#" class="btn btn-default"><i class="fa fa-fw fa-angle-right"></i></a>
@@ -184,7 +184,7 @@
 					</div>
 				</div>
 			</div>
-            <div class="panel panel-default" id="replyBox">
+            <div class="panel panel-default" id="replyBox" style="border-left: 1px solid #eeeeee">
                 <div class="panel-heading">
                     <strong>Reply</strong>
                     <div class="pull-right">

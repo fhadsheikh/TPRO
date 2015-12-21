@@ -265,6 +265,15 @@ $(document).ready(function(){
             $(this).text(newDate);
         });
     
+    // Module Settings (Enable / Disable)   
+    
+    $(".moduleEnabled").on('switchChange.bootstrapSwitch', function(event, state){
+
+        
+        
+    });
+    
+    
 //        $('.testcase').on('click',function(evt){
 //              var id = this.id;
 //            

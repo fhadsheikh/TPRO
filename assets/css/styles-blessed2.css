@@ -7252,9 +7252,9 @@ body.layout-boxed .infobar-wrapper {
 }
 .page-tabs {
   margin: 0 -12px 24px;
-  background: #f5f5f5;
+/*  background: #f5f5f5;*/
   padding: 0 24px !important;
-  border-bottom: 1px solid #e0e0e0;
+  /* border-bottom: 1px solid #e0e0e0; */
 }
 .page-tabs .nav.nav-tabs > li a {
   color: #90a4ae;
@@ -9412,7 +9412,7 @@ body.sidebar-collapsed .sidebar nav.widget-body > ul.acc-menu li.hasChild:hover 
   }
 }
 .static-content-wrapper {
-  background: #FFF;
+  background: #fff ;
 }
 .sidebar-scroll .static-sidebar {
   position: fixed !important;

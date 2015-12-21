@@ -10,11 +10,16 @@ class Reports extends CI_Controller {
         $this->load->model('Database_model');
         $this->load->model('Helpdesk_model');
         $this->load->helper('date_helper');
+        
+        $this->load->config('settings');
  
-
-        $allowed = $this->session->userdata('LoggedIn');
-
-        if($allowed == false){redirect('user/login');}
+        ($this->auth->is_logged_in() ? : redirect('user/login') );
+        
+        if($this->config->item('module_reports') === FALSE)
+        {
+            redirect('user/login');
+        }
+        
         
     }
     

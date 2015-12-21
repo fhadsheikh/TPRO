@@ -9,6 +9,7 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a aria-expanded="true" href="#home2" data-toggle="tab">Personal</a></li>
                             <li class=""><a aria-expanded="false" href="#profile2" data-toggle="tab">API</a></li>
+                            <li class=""><a aria-expanded="false" href="#modules" data-toggle="tab">Modules</a></li>
                             <li class=""><a aria-expanded="false" href="#profile2" data-toggle="tab">System</a></li>
                         </ul>
                         <div class="tab-content">
@@ -139,6 +140,28 @@
                                                     <input class="form-control" type="password" value="<?php echo $pusher_app_id; ?>"></input>
                                                 </div>
                                             </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            <div class="tab-pane" id="modules">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-1">
+                                        <form class="form row-border" action="">
+                                            <h2><strong>Modules</strong></h2>
+                                            
+                                            <?php foreach($modules as $key => $module): ?>
+                                            
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label text-right"><?php echo $module['name']; ?></label>
+                                                    <div class="col-sm-5">
+                                                       <input id="<?php echo $module['name'];?>" data-module="<?php echo $module['name']; ?>" class="bootstrap-switch moduleEnabled" type="checkbox" data-size="mini" data-on-color="info" data-off-color="default" data-on-text="I" data-off-text="O" <?php if($module['enabled']){echo "checked";}else{echo "";}; ?>>
+                                                    </div>
+                                                </div>
+                                            
+                                            <?php endforeach; ?>
+                                            
                                         </form>
                                     </div>
                                 </div>

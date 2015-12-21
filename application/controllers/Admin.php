@@ -3,14 +3,21 @@
 class Admin extends CI_Controller {
 
     public function __construct(){
+        
         parent::__construct();
 
-        ($this->tech->isLoggedIn() ? : redirect('user/login') );
-
+        ($this->auth->is_logged_in() ? : redirect('user/login') );
+        
         $this->load->model('Helpdesk_model');
         $this->load->model('Database_model');
         $this->load->model('Pusher_model');
         $this->load->model('Teamviewer_model');
+                
+        $this->load->config('pusher');
+        $this->load->config('settings');
+        
+       
+        
     }
 
     public function index(){
@@ -111,6 +118,9 @@ class Admin extends CI_Controller {
 
                 // Send desktop notification
                 $this->Pusher_model->newTicket($newTicket);
+                
+                $this->Pusher_model->update();
+
 
             } else {
 
@@ -151,11 +161,13 @@ class Admin extends CI_Controller {
                         }
 
                     }
+                    
+                    $this->Pusher_model->update();
+
                     }
                 }
         }
 
-        $this->Pusher_model->update();
 echo '<html><head><meta http-equiv="refresh" content="5"></head></html>';
 
     }
@@ -184,7 +196,8 @@ echo '<html><head><meta http-equiv="refresh" content="5"></head></html>';
 
     public function settings(){
 
-        $this->load->config('pusher');
+        
+        $data['modules'] = $this->config->item('modules');
 
         $data['tech']['username'] = $this->session->Username;
         $data['tech']['name'] = $this->session->FirstName." ".$this->session->LastName;
